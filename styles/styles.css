@@ -1,0 +1,95 @@
+.bigForm h3 {
+  color: #5f7b6d;
+}
+
+.bigForm ol{
+  padding-left:28px!important;
+}
+.bigForm {
+  background-color:white;
+  border-radius: 8px!important;
+}
+.bigFormContainer{
+background-color:#ECF2EC;
+}
+
+.mainContent{
+  max-width:800px!important;
+}
+
+.colouredBg{
+  background-color: #ECF2EC;
+}
+
+/* background color of all buttons */
+.btn {
+  padding: 16px 32px!important;
+  font-size: 20px!important;
+  background-color: #69B18D!important;
+  border: #69B18D!important;
+  border-radius: 8px!important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3)!important;
+
+}
+
+.btn:hover {
+  background-color: #4A9871!important;
+  border: #4A9871!important;
+}
+
+.btn:focus {
+  background-color: #4A9871!important;
+  border: #4A9871!important;
+}
+
+
+.btn:active {
+  background-color: #317E58!important;
+  border: #317E58!important;
+}
+
+/* submit button */
+#submitButton {
+  background-color: #00B85C!important;
+  border: #00B85C!important;
+}
+
+#submitButton:hover {
+  background-color: #009249!important;
+  border: #009249!important;
+}
+
+#submitButton:focus {
+  background-color: #009249!important;
+  border: #009249!important;
+}
+
+#submitButton:active {
+  background-color: #026835!important;
+  border: #026835!important;
+}
+
+/* end buttons */
+
+.steps {
+color: grey;
+}
+.hidden {
+  display: none;
+}
+
+.logo{
+  width:300px;
+}
+
+.point_details{
+  color: #ACACAC;
+}
+
+label{margin-top:10px;}
+
+.required-field {
+  border: 1px solid red !important;
+  border-radius:5px;
+  color:red;
+}
