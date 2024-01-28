@@ -1,0 +1,55 @@
+<html>
+  <body>
+<!-- Q7 Question -->
+<div class="form-group">
+  <label for="coordinatorIntitute">What is the host institution of the case study leader?</label>
+  <input
+    type="text"
+    class="form-control"
+    name="coordinatorIntitute"
+    id="coordinatorIntitute"
+  />
+
+  <label for="coordinatorName">Case study leader name</label>
+  <input
+    type="text"
+    class="form-control"
+    name="coordinatorName"
+    id="coordinatorName"
+  />
+
+  <label for="corrdinatorDetails">Case study leader email </label>
+  <input
+    type="text"
+    class="form-control"
+    name="corrdinatorDetails"
+    id="corrdinatorDetails"
+    oninput="validateEmail(this)"
+  />
+
+  <div id="invalidEmailMessage" style="color: red;"></div>
+</div>
+
+<script>
+function validateEmail(input) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isValid = emailRegex.test(input.value);
+  const invalidEmailMessage = document.getElementById("invalidEmailMessage");
+
+  if (isValid) {
+    input.classList.remove("invalid-email");
+    invalidEmailMessage.textContent = "";
+  } else {
+    input.classList.add("invalid-email");
+    invalidEmailMessage.textContent = "Invalid email";
+  }
+}
+</script>
+
+<style>
+.invalid-email {
+  border: 2px solid red;
+}
+</style>
+  </body>
+</html>
