@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+  <link rel="stylesheet" href="css/select2-bootstrap-5-theme.css" />
+  <link rel="stylesheet" href="css/select2-bootstrap-5-theme.min.css" />
+  <link rel="stylesheet" href="css/select2-bootstrap-5-theme.rtl.css" />
+  <link rel="stylesheet" href="css/select2-bootstrap-5-theme.rtl.min.css" />
+  <link rel="stylesheet" href="styles/styles.css" />
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="scripts/field_validation.js"></script>
+  <script src="scripts/populatecountries.js"></script>
+  </head>
+  <body class="colouredBg">
+    <div class="container mb-5 mt-5">
+      <div class="mainContent mx-auto">
+        <div class="text-center mb-3">
+          <img src="LOGO_FINAL_SITE.png" class="img-fluid logo" />
+        </div>
+
+        <h2>Questions on the Nexus Case Studies</h2>
+        <h5 class="mt-4">Introduction</h5>
+        <div class="mb-5">
+          <p>
+            Thank you for adding your Case Study information to the Global Nexus
+            Case Studies Platform. The platform is a free-to-access tool that
+            hosts Nexus Case Studies from all around the world held by Cost
+            Action NEXUSNET and supported by Nexus Cluster Project.
+          </p>
+          <p>
+            The platform allows the users to visualize the information of each
+            Case Studies based on multiple queries and also download a factsheet
+            with complete information of each CS. You will now be guided to
+            provide information about your CS.
+          </p>
+          <p>
+            You can always come back to complete information later on, your
+            information will be saved. Whenever you think you don’t have the
+            right information to add you can contact your colleagues or tell
+            them to complete it themselves and come back.
+          </p>
+          <br />
+          <p>
+            Are you inputting a new project or adding a case study to an
+            existing project?
+          </p>
+
+          <!-- Radiobuttons with the main choice -->
+          <label>
+            <input
+              type="radio"
+              name="options"
+              value="option1"
+              onchange="showContent('option1')"
+            />
+            Add a <strong>new project</strong> </label
+          ><br />
+          <label>
+            <input
+              type="radio"
+              name="options"
+              value="option2"
+              onchange="showContent('option2')"
+            />
+            Add a new case study to an <strong>existing project</strong>
+          </label>
+        </div>
+        <!-- end of radiobuttons with the main choice -->
+
+        <!-- start of the first  content - form -->
+        <div id="content1" class="hidden">
+          <form id="multiSectionFormTwo" class="bigForm mb-6 mt-6 p-4">
+            <div class="form-section"></div>
+            <h3 class="mt-3 mb-4">Add a <strong>new project</strong></h3>
+
+            <!-- Q0 -->
+            <div class="form-group">
+              <label for="projectName">Project name</label>
+              <input type="text" class="form-control" name="projectName" id="projectName" required/>
+</div>
+            <!-- Q1 Question   -->
+            <div class="form-group">
+              <label for="fundingSource"
+                >The project is funded by
+                </label
+              >
+              <select
+                class="form-select single-select-field"
+                id="fundingSource"
+                name="fundingSource"
+                required
+                data-minimum-results-for-search="Infinity"
+              >
+                <option value="">Select an option</option>
+                <option value="Horizon 2020">Horizon 2020</option>
+                <option value="Horizon Europe">Horizon Europe</option>
+                <option value="Prima">Prima</option>
+                <option value="Life">Life</option>
+                <option value="Interreg">Interreg</option>
+                <option value="Erasmus+">Erasmus+</option>
+                <option value="Marie Sklodowska-Curie">
+                  Marie Sklodowska-Curie
+                </option>
+                <option value="National/Regional funding">
+                  National/Regional funding
+                </option>
+                <option value="Not funded in any project">
+                  Not funded in any project
+                </option>
+                <option value="Other">Other (specify below)</option>
+              </select>
+            </div>
+
+
+             <!-- Additional Text Field for 'Other' -->
+             <div
+             class="form-group"
+             id="fundingSourceDetails"
+             style="display: none"
+           >
+             <label for="fundingSourceText">Specify the funding</label>
+             <input
+               type="text"
+               class="form-control"
+               id="fundingSourceText"
+               name="fundingSourceText"
+             />
+           </div>
+
+
+
+
+
+
+            <!-- Q3 Question  -->
+            <div class="form-group">
+              <label for="projectInstitution">Project coordinator host Institution
+              </label>
+              <input type="text" class="form-control" name="projectInstitution" id="projectInstitution" />
+
+              <label for="projectWebsite">Project website</label>
+              <input type="text" class="form-control" name="projectWebsite" id="projectWebsite" />
+
+              <label for="projectAmount">Project funding amount</label>
+              <input type="text" class="form-control" name="projectAmount" id="projectAmount" />
+            </div>
+
+
+            <!-- Project Start Date and Project End Date -->
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label for="projectStartDate">Project start date:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="projectStartDate"
+                  name="projectStartDate"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="projectEndDate">Project end date:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="projectEndDate"
+                  name="projectEndDate"
+                />
+              </div>
+            </div>
+<div id="warningDiv" class="mt-4" style="display:none">The form can not be submitted unless you fill out all the required fields (marked in red)</div>
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-primary  me-3 mt-5 mb-5" onclick="submitForm()">
+                Submit new project
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- start of the second content - form -->
+        <div id="content2" class="hidden">
+          <form id="multiSectionForm" class="bigForm mb-6 mt-6 p-4">
+            <!-- Sections -->
+            <div class="form-section" id="section1">
+              <div class="steps mt-3 mb-5">Step 1 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol>
+                  <li>Case Study characteristics</li>
+                </ol>
+              </h3>
+              <!-- Your form fields for section 2 go here -->
+
+              <!-- Q1 -->
+              <div class="form-group">
+                <label for="caseStudyText">Name your case study</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="caseStudyText"
+                  name="caseStudyText"
+                />
+              </div>
+
+              <!-- Q7 Question  -->
+              <div class="form-group">
+
+                <label for="coordinatorIntitute">What is the host institution of the case study leader?</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="coordinatorIntitute"
+                  id="coordinatorIntitute"
+                />
+
+                <label for="coordinatorName">Case study leader name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="coordinatorName"
+                  id="coordinatorName"
+                />
+
+                <label for="corrdinatorDetails">Case study leader email </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="corrdinatorDetails"
+                  id="corrdinatorDetails"
+                />
+              </div>
+
+              <!-- Q8 Question  -->
+
+              <div class="form-group">
+                <label for="coordinatorCountry2"
+                  >In which country/countries is your case study
+                  located?</label
+                >
+                <select
+                  class="coordinatorCountry form-control single-select-field"
+                  id="coordinatorCountry2"
+                  name="coordinatorCountry2"
+                >
+                  <option value="">Select a country</option>
+                </select>
+              </div>
+
+              <!-- Q9 Question   -->
+              <div class="form-group">
+                <label for="caseStudyScale">What is the scale of the case study?</label>
+                <select
+                  class="form-control single-select-field"
+                  id="caseStudyScale"
+                  name="caseStudyScale"
+                  data-minimum-results-for-search="Infinity"
+                >
+                  <option value="">Select an option</option>
+                  <option value="Global">Global</option>
+                  <option value="Continental">Continental</option>
+                  <option value="International">
+                    International (when more than one country is involved)
+                  </option>
+                  <option value="National">National (entire country)</option>
+                  <option value="Regional">
+                    Regional (everything that is within a country and bigger
+                    than municipality)
+                  </option>
+                  <option value="Local">Local (municipality/city)</option>
+                  <option value="Other" id="caseStudyScaleOther">
+                    Other (specify below)
+                  </option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'Other' -->
+              <div
+                class="form-group"
+                id="caseStudyScaleDetails"
+                style="display: none"
+              >
+                <label for="caseStudyScaleText">Specify the scale of study</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="caseStudyScaleText"
+                  name="caseStudyScaleText"
+                />
+              </div>
+
+
+
+
+              <!-- Q10 Question  -->
+              <div class="form-group">
+                <label for="transboundary">10. Is the case study transboundary?</label>
+                <select
+                  class="form-control single-select-field"
+                  name="transboundary"
+                  id="transboundary"
+                  data-minimum-results-for-search="Infinity"
+                >
+                  <option value="">Select an option</option>
+                  <option value="No">No</option>
+                  <option value="BetweenCountries">
+                    Transboundary between countries
+                  </option>
+                  <option value="BetweenRegions">
+                    Transboundary between regions
+                  </option>
+                </select>
+              </div>
+
+              <!-- Q11 -->
+              <div class="form-group">
+                <label for="caseStudyObjectives"
+                  >11. What were/are the objectives (goals) of the case study?</label
+                >
+                <textarea
+                  class="form-control"
+                  id="caseStudyObjectives"
+                  name="caseStudyObjectives"
+                  rows="4"
+                  placeholder="Write your response here"
+                ></textarea>
+              </div>
+
+              <!-- Your form fields for section 1 go here -->
+
+              <!-- enf of forms section 1 //-->
+
+              <!-- Inside your form section -->
+              <div class="d-flex justify-content-end mt-4 mb-4">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="ValidateOne()"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+
+            <div class="form-section" id="section2" style="display: none">
+              <div class="steps mt-3 mb-5">Step 2 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol start="2">
+                  <li>Nexus components information</li>
+                </ol>
+              </h3>
+
+              <!-- form fields for section 3 go here -->
+
+              <!-- Q12 Question    -->
+
+              <div class="form-group">
+                <label for="nexus_sectors"
+                  >12. What sectors are involved in the identified nexus
+                  challenges?</label
+                >
+
+                <select
+                name="nexus_sectors[]"
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple="multiple"
+                  id="nexus_sectors"
+
+                >
+                  <option value="Water">Water</option>
+                  <option value="Food">Food</option>
+                  <option value="Energy">Energy</option>
+                  <option value="LandAvailability">
+                    Land Use/Land Availability
+                  </option>
+                  <option value="Ecosystems">
+                    Ecosystems and/or/Biodiversity
+                  </option>
+                  <option value="Climate">Climate</option>
+                  <option value="Soil">Soil</option>
+                  <option value="Waste">Waste</option>
+                  <option value="Health">Health</option>
+                </select>
+              </div>
+
+
+
+
+              <!-- Q13 Question   -->
+    <div class="form-group">
+      <label for="researchAreas">13. What are the main areas of investigation for research in the CS?</label>
+      <select class="form-control single-select-field" id="researchAreas" name="researchAreas"  data-minimum-results-for-search="Infinity">
+        <option value="">Select an option</option>
+        <option value="BiophysicalModeling">Biophysical modeling</option>
+        <option value="BehavioralStudies">Behavioral studies and SΗs perceptions</option>
+        <option value="GovernancePolicy">Governance and Policy</option>
+        <option value="Economic">Economic</option>
+        <option value="Other" id="researchAreasOther">Other (specify below)</option>
+      </select>
+    </div>
+
+
+          <!-- Additional Text Field for 'Other' -->
+          <div
+          class="form-group"
+          id="researchAreasDetails"
+          style="display: none"
+        >
+          <label for="researchAreasText">Specify the areas</label>
+          <input
+            type="text"
+            class="form-control"
+            id="researchAreasText"
+            name="researchAreasText"
+          />
+        </div>
+
+
+              <!-- End of section 2-->
+              <div class="d-flex justify-content-end mt-4 mb-4">
+                <button
+                  type="button"
+                  class="btn btn-primary  me-3"
+                  onclick="prevSection(2)"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="nextSection(2)"
+                >
+                  Next
+                </button>
+              </div>
+
+              <!-- end of button container-->
+            </div>
+
+            <div class="form-section" id="section3" style="display: none">
+              <div class="steps mt-3 mb-5">Step 3 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol start="3">
+                  <li>
+                    Modeling/Tools – Main simulation approaches and
+                    methodologies
+                  </li>
+                </ol>
+              </h3>
+
+              <!-- Q14 Question  -->
+              <div class="form-group">
+                <label for="systems_analysis"
+                  >14. Systems analysis: Which of the following method(s) have
+                  you used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="systems_analysis"
+                  name="systems_analysis"
+                >
+                  <option value="">Select an option</option>
+                  <option value="SDM">System Dynamics Modelling (SDM)</option>
+                  <option value="MultiSectoral">
+                    Multi-sectoral systems analysis
+                  </option>
+                  <option value="MaterialFlows">Material flows analysis</option>
+                  <option value="Informatics">
+                    Systems informatics and analytics
+                  </option>
+                  <option value="CausalLoop">
+                    Causal loop diagrams and system feedbacks
+                  </option>
+                  <option value="MathematicalModeling">
+                    Mathematical/engineering modelling
+                  </option>
+                  <option value="ResourceFlows">Resource flows</option>
+                  <option value="NetworkAnalysis">Network analysis</option>
+                </select>
+              </div>
+
+              <!-- Q15 Question   -->
+              <div class="form-group">
+                <label for="integratedModelling"
+                  >15. Integrated modelling: Which of the following method(s)
+                  have you used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="integratedModelling"
+                  name="integratedModelling"
+                >
+                  <option value="">Select an option</option>
+                  <option value="SWAT">
+                    SWAT (Soil and Water Assessment Tool)
+                  </option>
+                  <option value="CLEWS">
+                    CLEWS model (Climate, Land-use, Energy and Water Strategies)
+                  </option>
+                  <option value="SEWEM">
+                    SEWEM (System-Wide Economic-Water-Energy Model)
+                  </option>
+                  <option value="WEFNexus">WEF Nexus tool 2.0</option>
+                  <option value="PRIMA">
+                    PRIMA (Platform for Regional Integrated Modelling and
+                    Analysis)
+                  </option>
+                  <option value="MCDA">
+                    MCDA (Multicriteria Decision Analysis)
+                  </option>
+                  <option value="MuSIASEM">
+                    MuSIASEM (Multiscale Integrated Analysis of Societal and
+                    Ecosystem Metabolism)
+                  </option>
+                  <option value="IntegratedAssessment">
+                    Integrated assessment models
+                  </option>
+                </select>
+              </div>
+
+
+
+              <!-- Q16 Question 16  -->
+              <div class="form-group">
+                <label for="envManagement"
+                  >16. Environmental management: Which of the following
+                  method(s) have you used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="envManagement"
+                  name="envManagement"
+                >
+                  <option value="ScenarioAnalysis">Scenario analysis</option>
+                  <option value="Footprinting">Footprinting</option>
+                  <option value="LifeCycleAssessment">
+                    Life cycle assessment
+                  </option>
+                  <option value="DecisionSupportSystem">
+                    Decision support system
+                  </option>
+
+                </select>
+              </div>
+
+              <!-- Q17 Question  -->
+              <div class="form-group">
+                <label for="economicsMethods"
+                  >17. Economics: Which of the following method(s) have you
+                  used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="economicsMethods"
+                  name="economicsMethods"
+                >
+                  <option value="InputOutput">Input-output analysis</option>
+                  <option value="CostBenefit">Cost-benefit analysis</option>
+                  <option value="TradeOffSynergy">
+                    Trade-off/Synergy analysis
+                  </option>
+                  <option value="SocialAccounting">
+                    Social accounting matrix
+                  </option>
+                  <option value="EconomicModelling">Economic modelling</option>
+                  <option value="ValueChain">Value chain analysis</option>
+                  <option value="SupplyChain">Supply chain analysis</option>
+                </select>
+              </div>
+
+              <!-- Q18 Question 18  -->
+              <div class="form-group">
+                <label for="statisticsMethods"
+                  >18. Statistics: Which of the following method(s) have you
+                  used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="statisticsMethods"
+                  name="statisticsMethods"
+                >
+                  <option value="">Select an option</option>
+                  <option value="PrincipalComponent">
+                    Principal component analysis
+                  </option>
+                  <option value="RegressionStatistics">
+                    Regression statistics
+                  </option>
+                  <option value="TrendAnalysis">Trend analysis</option>
+                  <option value="DataMining">Data mining</option>
+                </select>
+              </div>
+
+              <!-- Q19 Question  -->
+              <div class="form-group">
+                <label for="socialScienceMethods"
+                  >19. Social science: Which of the following method(s) have you
+                  used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  name="socialScienceMethods"
+                  id="socialScienceMethods"
+                >
+                  <option value="Institutional analysis">
+                    Institutional analysis
+                  </option>
+                  <option value="Questionnaires, surveys, or interviews">
+                    Questionnaires, surveys, or interviews
+                  </option>
+                  <option value="Historical analysis">
+                    Historical analysis
+                  </option>
+                  <option value="Agent-based modelling">
+                    Agent-based modelling
+                  </option>
+                  <option value="Delphi technique">Delphi technique</option>
+                  <option value="Critical discourse analysis">
+                    Critical discourse analysis
+                  </option>
+                  <option value="Stakeholder analysis">
+                    Stakeholder analysis
+                  </option>
+                  <option value="Participatory workshops/Focus groups">
+                    Participatory workshops/Focus groups
+                  </option>
+                  <option value="Living labs">Living labs</option>
+                  <option value="Policy analysis">Policy analysis</option>
+                </select>
+              </div>
+              <!-- Q20 Question    -->
+              <div class="form-group">
+                <label for="ontologyEngineering"
+                  >20. Did you perform any work on ontology engineering?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="ontologyEngineering"
+                  name="ontologyEngineering"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes (specify below)</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'Yes' -->
+              <div
+                class="form-group"
+                id="ontologyEngineeringDetails"
+                style="display: none"
+              >
+                <label for="ontologyEngineeringText"
+                  >Please specify</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ontologyEngineeringText"
+                  name="ontologyEngineeringText"
+                />
+              </div>
+
+
+
+              <!-- Question 21   -->
+              <div class="form-group">
+                <label for="footprintCalculations"
+                  >21. Did you perform any footprint calculations (Water,
+                  Energy, Nexus, etc.)?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="footprintCalculations"
+                  name="footprintCalculations"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                  <option value="">Select an option</option>
+
+                  <option value="Yes">
+                    Yes (specify below)
+                  </option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+<!-- Additional Text Field for 'Yes' -->
+<div
+class="form-group"
+id="footprintCalculationsDetails"
+style="display: none"
+>
+<label for="footprintCalculationsText"
+  >Please specify</label
+>
+<input
+  type="text"
+  class="form-control"
+  id="footprintCalculationsText"
+  name="footprintCalculationsText"
+/>
+</div>
+
+
+              <!-- Question 22   -->
+              <div class="form-group">
+                <label for="decisionSupportSystem">22. Did you develop a Decision Support System?</label>
+                <select
+                  class="form-control single-select-field"
+                  id="decisionSupportSystem"
+                  name="decisionSupportSystem"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                  <option value="">Select an option</option>
+                  <option value="Yes" id="decisionSupportSystemSpecify">
+                    Yes (specify below)
+                  </option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'Other' -->
+              <div
+                class="form-group"
+                id="decisionSupportSystemDetails"
+                style="display: none"
+              >
+                <label for="decisionSupportSystemText"
+                  >Please provide the link or its name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="decisionSupportSystemText"
+                  name="decisionSupportSystemText"
+                />
+              </div>
+
+              <!-- Question 23   -->
+              <div class="form-group">
+                <label for="climateProjectionsModel"
+                  >23. Climate projections: Which of the following model(s) have
+                  you used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="climateProjectionsModel"
+                  name="climateProjectionsModel"
+                >
+                  <option value="CAPRI">CAPRI</option>
+                  <option value="MAGPIE">MAGPIE</option>
+                  <option value="E3ME">E3ME</option>
+                  <option value="MAGNET">MAGNET</option>
+                  <option value="GLOBIO">GLOBIO</option>
+                  <option value="SWAT">SWAT</option>
+                  <option value="HYDROSIM">HYDROSIM</option>
+                  <option value="UWOT">UWOT</option>
+                  <option value="WEAP">WEAP</option>
+                  <option value="LEAP">LEAP</option>
+                </select>
+              </div>
+
+              <!-- Question 24   -->
+              <div class="form-group">
+                <label for="dataTypesUsed"
+                  >24. Please define the data types used in the project:</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="dataTypesUsed"
+                  name="dataTypesUsed"
+                >
+                  <option value="Lab-scale">Lab-scale</option>
+                  <option value="Field-scale">Field-scale</option>
+                  <option value="Sensors">Sensors</option>
+                  <option value="Literature">Literature</option>
+                  <option value="Model output">Model output</option>
+                  <option value="Qualitative">Qualitative</option>
+                  <option value="Publicly available platforms">
+                    Publicly available platforms (OECD, FAO, EUROSTAT)
+                  </option>
+                  <option value="National statistics">
+                    National statistics
+                  </option>
+                </select>
+              </div>
+
+              <!-- Question 25   -->
+              <div class="form-group">
+                <label for="monitoringTechniques"
+                  >25. Did you use any monitoring techniques (e.g. near
+                  real-time, or other)?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="monitoringTechniques"
+                  name="monitoringTechniques"
+                >
+                  <option value="Sensors">Sensors</option>
+                  <option value="Satellite">Satellite</option>
+                  <option value="Citizen Science">Citizen Science</option>
+                  <option value="Crowd Sourcing">Crowd Sourcing</option>
+                  <option value="Web-scraping tools">
+                    Web-scraping tools (for searching and recording data from
+                    the web)
+                  </option>
+                  <option value="Field visits/sampling">
+                    Field visits/sampling
+                  </option>
+                </select>
+              </div>
+
+              <!-- Q26 -->
+              <div class="form-group">
+                <label for="aiMethodology"
+                  >26. Did you use Artificial Intelligence methodology (if
+                  any)?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="aiMethodology"
+                  name="aiMethodology"
+                >
+                  <option value="KnowledgeElicitationEngine">
+                    Knowledge Elicitation Engine
+                  </option>
+                  <option value="MachineLearning">Machine Learning</option>
+                  <option value="DeepLearning">Deep Learning</option>
+                  <option value="EvolutionaryOptimization">
+                    Evolutionary Optimization Approaches
+                  </option>
+                  <option value="SWORM">SWORM</option>
+                  <option value="SimulatedAnnealing">
+                    Simulated Annealing
+                  </option>
+                  <option value="AgentBasedModeling">
+                    Agent-Based Modeling
+                  </option>
+
+                  <option value="NotApplicable">Not applicable</option>
+                </select>
+              </div>
+
+              <!-- Q27 -->
+              <div class="form-group">
+                <label for="nexusIndicators"
+                  >27. Did you develop indicators/KPIs to assess the Nexus? Please specify below</label
+                >
+                <textarea
+                  class="form-control"
+                  id="nexusIndicators"
+                  name="nexusIndicators"
+                  rows="3"
+                  placeholder="Write your response here"
+                ></textarea>
+              </div>
+
+              <div class="d-flex justify-content-end mt-4 mb-4">
+                <button
+                  type="button"
+                  class="btn btn-primary  me-3"
+                  onclick="prevSection(3)"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="nextSection(3)"
+                >
+                  Next
+                </button>
+              </div>
+              <!-- end of button container-->
+            </div>
+
+            <div class="form-section" id="section4" style="display: none">
+              <div class="steps mt-3 mb-5">Step 4 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol start="4">
+                  <li>SH engagement: approaches, contribution to activities</li>
+                </ol>
+              </h3>
+              <!-- fields for section 5 go here -->
+
+              <!-- Q28 Question -->
+              <div class="form-group">
+                <label for="stakeholders"
+                  >28. Which stakeholders are involved in the case study? (as
+                  part of the 5tuple helix)</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="stakeholders"
+                  name="stakeholders"
+                >
+                  <option value="PrivateSector">
+                    Private sector/industry, business, enterprises
+                  </option>
+                  <option value="GovernmentalStakeholders">
+                    Governmental stakeholders/policy makers
+                  </option>
+                  <option value="Academia">Academia/research</option>
+                  <option value="Citizens">Citizens</option>
+                </select>
+              </div>
+
+
+
+              <!-- Q29 Question -->
+              <div class="form-group">
+                <label for="economicSector"
+                  >29. Which economic sector do the stakeholders belong
+                  to?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="economicSector"
+                  name="economicSector"
+                >
+                  <option value="AgricultureFarming">
+                    Agriculture/Farming
+                  </option>
+                  <option value="Energy">Energy</option>
+                  <option value="WaterResources">Water resources</option>
+                  <option value="Tourism">Tourism</option>
+                  <option value="Media">Media</option>
+                  <option value="BiodiversityEcosystems">
+                    Biodiversity and natural ecosystems
+                  </option>
+                  <option value="Education">Education</option>
+                  <option value="BuiltEnvironment">
+                    Built environment/construction
+                  </option>
+                  <option value="ClimateCrisis">
+                    Climate crisis/civil protection
+                  </option>
+                  <option value="Forestry">Forestry</option>
+                  <option value="EconomicsFinance">
+                    Economics/Finance (banks, commerce, investors)
+                  </option>
+                  <option value="Health">Health</option>
+                  <option value="TransportLogistic">
+                    Transport and logistic
+                  </option>
+                  <option value="Culture">Culture</option>
+                  <option value="SocialSciencesHumanities">
+                    Social sciences and humanities
+                  </option>
+                </select>
+              </div>
+
+              <!-- Q30 Question  -->
+              <div class="form-group">
+                <label for="stakeholderApproach"
+                  >30. What approach did you use to engage with the
+                  stakeholders?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="stakeholderApproach"
+                  name="stakeholderApproach"
+                >
+                  <option value="LivingLabs">Living Labs</option>
+                  <option value="StakeholderMapping">
+                    Stakeholder Mapping and engagement strategy
+                  </option>
+                  <option value="MultiStakeholderForum">
+                    Multi-stakeholder forum
+                  </option>
+                  <option value="CitizenScience">Citizen Science</option>
+                  <option value="ScenarioPlanning">Scenario planning</option>
+                  <option value="CommunitiesOfPractice">
+                    Communities of practice
+                  </option>
+                  <option value="CoCreation">Co-creation</option>
+                  <option value="EducationalPrograms">
+                    Educational programs
+                  </option>
+                  <option value="InformingStakeholders">
+                    Informing stakeholders after developing the tools
+                  </option>
+                  <option value="TrainingLocalCommunity">
+                    Training of local community
+                  </option>
+                </select>
+              </div>
+
+              <!-- Q31 //-->
+              <div class="form-group">
+                <label for="biggestActor"
+                  >31. In your case study, which organisation is the biggest
+                  actor affecting other organisations in the nexus?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="biggestActor"
+                  name="biggestActor"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Unknown">Do not know / Cannot tell</option>
+                </select>
+              </div>
+
+              <!-- Q32 Question -->
+              <div class="form-group">
+                <label for="organizationSector"
+                  >32. From which sector is this organization?</label
+                >
+                <select
+                  class="form-control  single-select-field"
+                  id="organizationSector"
+                  name="organizationSector"
+                  class="form-control"
+                  data-minimum-results-for-search="Infinity"
+                >
+                  <option value="">Select an option</option>
+                  <option value="Water">Water</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Food">Food</option>
+                  <option value="Ecosystems">Ecosystems</option>
+                  <option value="Other">Other (specify below)</option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'Other' -->
+              <div
+                class="form-group"
+                id="organizationSectorDetails"
+                style="display: none"
+              >
+                <label for="organizationSectorText">Specify the sector</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="organizationSectorText"
+                  name="organizationSectorText"
+                />
+              </div>
+
+              <!-- Q33 -->
+
+              <div class="form-group">
+                <label for="organizationEngagement"
+                  >33. Is this organization engaged in the work?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="organizationEngagement"
+                  name="organizationEngagement"
+                  data-minimum-results-for-search="Infinity"
+                >
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Your form fields for section 4 go here -->
+              <div class="d-flex justify-content-end mt-4 mb-4">
+                <button
+                  type="button"
+                  class="btn btn-primary  me-3"
+                  onclick="prevSection(4)"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="nextSection(4)"
+                >
+                  Next
+                </button>
+              </div>
+              <!-- end of button container -->
+            </div>
+
+            <div class="form-section" id="section5" style="display: none">
+              <div class="steps mt-3 mb-5">Step 5 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol start="5">
+                  <li>Governance and policies</li>
+                </ol>
+              </h3>
+              <!-- Your form fields for section 6 go here -->
+
+              <!-- Q34 Question -->
+              <div class="form-group">
+                <label for="governanceAssessment"
+                  >34. Have you performed any Governance Assessment?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="governanceAssessment"
+                  name="governanceAssessment"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes (specify below)</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'YES' -->
+              <div
+                class="form-group"
+                id="governanceAssessmentDetails"
+                style="display: none"
+              >
+                <label for="governanceAssessmentText"
+                  >Which methodology did you use for the assessment?</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="governanceAssessmentText"
+                  name="governanceAssessmentText"
+                />
+              </div>
+
+              <!-- Q35 Question  -->
+              <div class="form-group">
+                <label for="policyCoherenceAssessment"
+                  >35. Have you performed any Policy Coherence Assessment to
+                  identify policy gaps?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="policyCoherenceAssessment"
+                  name="policyCoherenceAssessment"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'YES' -->
+              <div
+                class="form-group"
+                id="policyCoherenceAssessmentDetails"
+                style="display: none"
+              >
+                <label for="policyCoherenceAssessmentText"
+                  >If yes, which methodology did you use (open type
+                  question)?</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="policyCoherenceAssessmentText"
+                  name="policyCoherenceAssessmentText"
+                />
+              </div>
+
+              <!-- Q36 Question-->
+              <div class="form-group">
+                <label for="nexusDrivers"
+                  >36. What are the most important drivers underpinning the
+                  Nexus challenges investigated?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="nexusDrivers"
+                  name="nexusDrivers"
+                >
+                  <option value="Governance">Governance</option>
+                  <option value="Technological">Technological</option>
+                  <option value="Cultural">Cultural</option>
+                  <option value="Socio-economic">Socio-economic</option>
+                  <option value="Physical">Physical</option>
+                </select>
+              </div>
+
+
+             <!-- Q37 Question  -->
+<div class="form-group">
+  <label for="coProductionLevel">37. What was the level of co-production of policy solutions and recommendations?</label>
+  <select class="form-control single-select-field" id="coProductionLevel" name="coProductionLevel"   data-minimum-results-for-search="Infinity">
+
+    <option value="">Select an option</option>
+    <option value="ScientificTeam">Solutions were derived by the scientific team</option>
+    <option value="ScientificTeamStakeholders">Solutions were derived by the scientific team and validated by the stakeholders</option>
+    <option value="FullyBottomUp">Solutions were derived fully bottom-up by stakeholders</option>
+    <option value="Other">Other (please provide the specification below. If not, the selection will not be considered)</option>
+  </select>
+</div>
+
+ <!-- Additional Text Field for 'Other' -->
+ <div
+ class="form-group"
+ id="coProductionLevelDetails"
+ style="display: none"
+>
+ <label for="coProductionLevelText">Your answer</label>
+ <input
+   type="text"
+   class="form-control"
+   id="coProductionLevelText"
+   name="coProductionLevelText"
+ />
+</div>
+
+
+              <!-- Q38 -->
+
+              <!-- Question 38 -->
+              <div class="form-group">
+                <label for="implementationLevel"
+                  >38. What is the current level of implementation of the
+                  proposed solutions and recommendations?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="implementationLevel"
+                  name="implementationLevel"
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                  <option value="">Select an option</option>
+                  <option value="AllImplemented">
+                    All solutions and recommendations have been implemented
+                  </option>
+                  <option value="SomeImplemented">
+                    Some solutions and recommendations have been implemented
+                  </option>
+                  <option value="NoneImplemented">
+                    None of the solutions and recommendations have been
+                    implemented yet
+                  </option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+
+
+
+
+              <!-- Q39 Question  -->
+              <div class="form-group">
+                <label for="financingMethod">39. If solutions have been implemented, how were they financed?</label>
+                <select class="form-control single-select-field" id="financingMethod" name="financingMethod" data-minimum-results-for-search="Infinity">
+
+                  <option value="">Select an option</option>
+                  <option value="ByTheState">By the state</option>
+                  <option value="CoFinanced">Co-financed between the state and donors/investors/private sector</option>
+                  <option value="PrivateSector">Financed by the private sector</option>
+                  <option value="Other">Other: please provide the specification below. <strong>If not, the selection will not be considered!</strong></option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'Other' -->
+              <div class="form-group" id="financingMethodDetails" style="display: none;">
+                <label for="financingMethodText">Your answer</label>
+                <input type="text" class="form-control" id="financingMethodText" name="financingMethodText">
+              </div>
+
+              <!-- Q40 -->
+              <div class="form-group">
+                <label for="governanceChallenges"
+                  >40. What are the main governance challenges in relation to
+                  nexus that you faced in the CS?</label
+                >
+                <textarea
+                  class="form-control"
+                  id="governanceChallenges"
+                  name="governanceChallenges"
+                  rows="4"
+                  placeholder="Write your response here"
+                ></textarea>
+              </div>
+
+              <!-- Q41 Question  -->
+              <div class="form-group">
+                <label for="lessonsLearned"
+                  >41. Do you have any lessons learned in relation to nexus
+                  governance to add?</label
+                > <textarea
+                class="form-control"
+                id="lessonsLearned"
+                name="lessonsLearned"
+                rows="4"
+                placeholder="Write your response here"
+              ></textarea>
+              </div>
+
+
+              <!-- end of 5 -->
+              <div class="d-flex justify-content-end mt-4 mb-4">
+                <button
+                  type="button"
+                  class="btn btn-primary  me-3"
+                  onclick="prevSection(5)"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="nextSection(5)"
+                >
+                  Next
+                </button>
+              </div>
+
+              <!-- end of button container -->
+            </div>
+
+            <div class="form-section" id="section6" style="display: none">
+              <div class="steps mt-3 mb-5">Step 6 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol start="6">
+                  <li>
+                    Project outputs: decision support tools, visualization,
+                    glossary inventory, technological solutions, etc.
+                  </li>
+                </ol>
+              </h3>
+              <!--  form fields for section 7 go here -->
+
+              <!-- Q42 Question  -->
+              <div class="form-group">
+                <label for="disseminationTools"
+                  >42. Did you develop any tool or channel for the exploitation
+                  and/or dissemination of results?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="disseminationTools"
+                  name="disseminationTools"
+                >
+                  <option value="Dashboard">Dashboard</option>
+                  <option value="DecisionSupportTools">
+                    Decision support tools
+                  </option>
+                  <option value="OnlineMarketPlace">Online market place</option>
+                  <option value="ARVR">
+                    Augmented reality/Virtual reality
+                  </option>
+                  <option value="SeriousGames">Serious games</option>
+                  <option value="TrainingMaterial">Training material</option>
+                  <option value="OpenAccessDatabase">
+                    Open access database
+                  </option>
+                  <option value="MobileApp">Mobile/tablet application</option>
+                </select>
+              </div>
+
+               <!-- Q43 -->
+               <div class="form-group">
+                <label for="assessment"
+                  >43. Did you perform any SDG’s assessment?
+                </label>
+                <select
+                class="form-select multiple-no-tags"
+                data-placeholder="Choose one or more"
+                multiple
+                id="assessment"
+                name="assessment"
+                >
+                  <option value="SdgPoverty">SDG 1: No Poverty</option>
+                  <option value="SdgHunger">SDG 2: Zero Hunger</option>
+                  <option value="SdgHealth">
+                    SDG 3: Good Health and Well-being
+                  </option>
+                  <option value="SdgEducation">SDG 4: Quality Education</option>
+                  <option value="SdgEquality">SDG 5: Gender Equality</option>
+                  <option value="SdgWater">
+                    SDG 6: Clean Water and Sanitation
+                  </option>
+                  <option value="SdgEnergy">
+                    SDG 7: Affordable and Clean Energy
+                  </option>
+                  <option value="SdgEconomic">
+                    SDG 8: Decent Work and Economic Growth
+                  </option>
+                  <option value="SdgIndustry">
+                    SDG 9: Industry, Innovation, and Infrastructure
+                  </option>
+                  <option value="SdgInequality">
+                    SDG 10: Reduced Inequalities
+                  </option>
+                  <option value="SdgCities">
+                    SDG 11: Sustainable Cities and Communities
+                  </option>
+                  <option value="SdgConsumption">
+                    SDG 12: Responsible Consumption and Production
+                  </option>
+                  <option value="SdgClimate">SDG 13: Climate Action</option>
+                  <option value="SdgLifeBelow">SDG 14: Life Below Water</option>
+                  <option value="SdgLifeLand">SDG 15: Life on Land</option>
+                  <option value="SdgJustice">
+                    SDG 16: Peace, Justice, and Strong Institutions
+                  </option>
+                  <option value="SdgPartnerships">
+                    SDG 17: Partnerships for the Goals
+                  </option>
+                </select>
+              </div>
+              <!-- Q44 Question -->
+
+              <div class="form-group">
+                <label for="sdgAssessmentMethod"
+                  >44. Which method did you use for the SDG’s assessment?
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="sdgAssessmentMethod"
+                  name="sdgAssessmentMethod"
+                  placeholder="Write your response here"
+                />
+              </div>
+
+
+
+              <!-- Q45 Question 45  -->
+              <div class="form-group">
+                <label for="dataManagementPlan"
+                  >45. Did you implement a Data Management Plan (e.g., Knowledge
+                  Graph, dashboard)?</label
+                >
+                <select
+                  class="form-control single-select-field"
+                  id="dataManagementPlan"
+                  name="dataManagementPlan"
+                  data-minimum-results-for-search="Infinity"
+                >
+                  <option value="">Select an option</option>
+                  <option value="Yes">Yes (specify below)</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Additional Text Field for 'YES' -->
+              <div
+                class="form-group"
+                id="dataManagementPlanDetails"
+                style="display: none"
+              >
+                <label for="dataManagementPlanText"
+                  >Which data Data Management Plan did you use?</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="dataManagementPlanText"
+                  name="dataManagementPlanText"
+                />
+              </div>
+
+              <div class="d-flex justify-content-end mt-4 mb-4">
+                <button
+                  type="button"
+                  class="btn btn-primary  me-3"
+                  onclick="prevSection(6)"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="nextSection(6)"
+                >
+                  Next
+                </button>
+              </div>
+              <!-- end of button container -->
+            </div>
+
+            <div class="form-section" id="section7" style="display: none">
+              <div class="steps mt-3 mb-5">Step 7 of 7</div>
+              <h3 class="mt-3 mb-4">
+                <ol start="7">
+                  <li>
+                    Project after life (Exploitation and sustainability of the
+                    solutions)
+                  </li>
+                </ol>
+              </h3>
+              <!--  fields for section 8 go here -->
+
+
+
+
+              <!-- Q46 -->
+
+              <div class="form-group">
+                <label for="caseStudyOutputs"
+                  >46. What kind of outputs did the case study develop?</label
+                >
+                <select
+                  class="form-select multiple-no-tags"
+                  data-placeholder="Choose one or more"
+                  id="caseStudyOutputs"
+                  name="caseStudyOutputs"
+                  multiple
+                  data-minimum-results-for-search="Infinity"
+                >
+
+                <option value="">Select an option</option>
+                  <option value="Creation of stakeholder networks">
+                    Creation of stakeholder networks
+                  </option>
+                  <option value="Teaching">Teaching</option>
+                  <option value="Basis/ideas for a new scientific project">
+                    Basis/ideas for a new scientific project
+                  </option>
+                  <option value="Citizen science platform/app">
+                    Citizen science platform/app
+                  </option>
+                  <option value="Serious game">Serious game</option>
+                  <option value="Dashboard">Dashboard</option>
+                  <option value="Knowledge graph">Knowledge graph</option>
+                  <option value="Data inventory">Data inventory</option>
+                </select>
+              </div>
+
+              <!-- Q47 Question  -->
+              <div class="form-group">
+                <label for="projectOutputsUsage"
+                  >47. How have the outputs of the project been used?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="projectOutputsUsage"
+                  name="projectOutputsUsage"
+                > <option value="">Select an option</option>
+                  <option value="PlanningManagement">
+                    For planning and management
+                  </option>
+                  <option value="Research">For research purposes</option>
+                  <option value="TechReadiness">
+                    For advancing the technology readiness level of solutions
+                  </option>
+                  <option value="Commercialization">
+                    For commercialization of solutions
+                  </option>
+                  <option value="Education">For education purposes</option>
+                  <option value="Teaching">For teaching purposes</option>
+                  <option value="ActionsTaken">
+                    The results have not been used so far but actions are being
+                    taken
+                  </option>
+                  <option value="NoAction">
+                    The results are not used and there is no action in place to
+                    use them
+                  </option>
+                </select>
+              </div>
+
+              <!-- Q48 Question  -->
+              <div class="form-group">
+                <label for="resultsUsers"
+                  >48. When used, who used the results (Helix
+                  categorization)?</label
+                >
+                <select
+                  class="form-select multiple-select-custom-field"
+                  data-placeholder="Choose one or more, or type your option"
+                  multiple
+                  id="resultsUsers"
+                  name="resultsUsers"
+                >
+                  <option value="Academia">Academia</option>
+                  <option value="Government">Government</option>
+                  <option value="Industry">Industry</option>
+                  <option value="CivilSociety">Civil society</option>
+                  <option value="NatureConservation">
+                    Nature conservation organizations
+                  </option>
+                </select>
+              </div>
+              <!-- Q49 -->
+              <div class="form-group">
+                <label for="impacts"
+                  >49. Did the project have any/multiple of the following
+                  impacts: (European Research Foundation)-7 categories?</label
+                >
+                <select
+                  class="form-select multiple-no-tags"
+                  data-placeholder="Choose one or more"
+                  multiple
+                  id="impacts"
+                  name="impacts"
+                >
+                  <option value="Scientific">Scientific impact</option>
+                  <option value="Technological">Technological impact</option>
+                  <option value="Economic">Economic impact</option>
+                  <option value="Social">Social impact</option>
+                  <option value="Political">Political impact</option>
+                  <option value="Environmental">Environmental impact</option>
+                  <option value="Health">Health impact</option>
+                  <option value="Cultural">Cultural impact</option>
+                  <option value="Training">Training impacts</option>
+                </select>
+              </div>
+
+              <!-- Q50 -->
+
+              <div class="form-group">
+                <label for="achieved"
+                  >Please briefly illustrate the impact(s) achieved</label
+                >
+                <textarea
+                  class="form-control"
+                  id="achieved"
+                  name="achieved"
+                  rows="4"
+                  placeholder="Write your response here"
+                ></textarea>
+              </div>
+
+              <div class="d-flex justify-content-end mb-1 mt-4">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  onclick="prevSection(7)"
+                >
+                  Back
+                </button>
+              </div>
+              <div class="d-flex justify-content-center">
+               <!--BUTTON HERE -->
+              </div>
+              <!-- end of button container -->
+            </div>
+            <div id="warningDivSecond" class="mt-4" style="display:none">The form can not be submitted unless you fill out all the required fields (marked in red)</div>
+
+            <button
+            type="button"
+            class="btn btn-primary"
+            onclick="submitFormTwo()"
+          >
+            Submit case study
+          </button>
+            <!-- Fields for 7 -->
+          </form>
+        </div>
+        <!-- end of second container- div  below -->
+      </div>
+      <!-- below div max-width ending -->
+    </div>
+
+
+<script>
+  // navigation in steps
+
+var currentSection = 1;
+
+function nextSection(section) {
+  var currentSectionElement = document.getElementById("section" + section);
+  currentSectionElement.style.display = "none";
+
+  currentSection = section + 1;
+  if (currentSection > 7) {
+    currentSection = 7;
+  }
+
+  var nextSectionElement = document.getElementById("section" + currentSection);
+  nextSectionElement.style.display = "block";
+}
+
+function prevSection(section) {
+  var currentSectionElement = document.getElementById("section" + section);
+  currentSectionElement.style.display = "none";
+
+  currentSection = section - 1;
+  if (currentSection < 1) {
+    currentSection = 1;
+  }
+
+  var prevSectionElement = document.getElementById("section" + currentSection);
+  prevSectionElement.style.display = "block";
+}
+  </script>
+
+  <script>
+    // Toggle radio button below
+
+function showContent(option) {
+  var content1 = document.getElementById("content1");
+  var content2 = document.getElementById("content2");
+
+  if (option === "option1") {
+    content1.style.display = "block";
+    content2.style.display = "none";
+  } else if (option === "option2") {
+    content1.style.display = "none";
+    content2.style.display = "block";
+  }
+}
+    </script>
+
+<!-- Setup select two below -->
+<!-- multiple with custom tags -->
+    <script>
+      $(document).ready(function () {
+        $(".multiple-select-custom-field").select2({
+          theme: "bootstrap-5",
+          width: $(this).data("width")
+            ? $(this).data("width")
+            : $(this).hasClass("w-100")
+            ? "100%"
+            : "style",
+          placeholder: $(this).data("placeholder"),
+          closeOnSelect: false,
+          tags: true,
+        });
+      });
+    </script>
+
+<!-- multiple no custom tags -->
+<script>
+  $(document).ready(function () {
+    $(".multiple-no-tags").select2({
+      theme: "bootstrap-5",
+      width: $(this).data("width")
+        ? $(this).data("width")
+        : $(this).hasClass("w-100")
+        ? "100%"
+        : "style",
+      placeholder: $(this).data("placeholder"),
+      closeOnSelect: false,
+      tags: false,
+    });
+  });
+</script>
+
+<!-- single select -->
+<script>
+  $(document).ready(function () {
+    $(".single-select-field").select2({
+      theme: "bootstrap-5",
+      width: $(this).data("width")
+        ? $(this).data("width")
+        : $(this).hasClass("w-100")
+        ? "100%"
+        : "style",
+      placeholder: $(this).data("placeholder"),
+    });
+  });
+</script>
+
+
+  <!-- show/hide the additional field if Yes/No -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Define the list of dropdown IDs and their corresponding details IDs
+      const dropdownDetailsMapping = [
+        //Q20
+        { dropdownId: "ontologyEngineering", detailsId: "ontologyEngineeringDetails" },
+        //Q21
+        { dropdownId: "footprintCalculations", detailsId: "footprintCalculationsDetails" },
+        //Q22
+        { dropdownId: "decisionSupportSystem", detailsId: "decisionSupportSystemDetails" },
+        //Q34
+        { dropdownId: "governanceAssessment", detailsId: "governanceAssessmentDetails" },
+        //Q45
+        { dropdownId: "dataManagementPlan", detailsId: "dataManagementPlanDetails" },
+      ];
+
+      // Function to handle the change event
+      function handleFormChange(dropdownId, detailsId) {
+        const dropdown = $("#" + dropdownId); // Use jQuery to select the dropdown
+        const details = $("#" + detailsId);
+
+        // Initialize Select2
+        dropdown.select2();
+
+        dropdown.on("change", function (e) {
+          const selectedValue = e.target.value;
+
+          details.toggle(selectedValue === "Yes"); // Show details if "Yes" is selected, hide otherwise
+        });
+
+        // Trigger the change event to handle the initial state
+        dropdown.trigger("change");
+      }
+
+      // Attach the event listener to the change event of each dropdown
+      dropdownDetailsMapping.forEach(({ dropdownId, detailsId }) => {
+        handleFormChange(dropdownId, detailsId);
+      });
+    });
+  </script>
+
+    </script>
+
+
+
+<!-- Script to populate countries -->
+    <script>
+      function populateCountries() {
+        var countryDropdowns =
+          document.getElementsByClassName("coordinatorCountry");
+
+        // List of countries
+        var countries = [
+          "Afghanistan",
+          "Albania",
+          "Algeria",
+          "Andorra",
+          "Angola",
+          "Antigua & Deps",
+          "Argentina",
+          "Armenia",
+          "Australia",
+          "Austria",
+          "Azerbaijan",
+          "Bahamas",
+          "Bahrain",
+          "Bangladesh",
+          "Barbados",
+          "Belarus",
+          "Belgium",
+          "Belize",
+          "Benin",
+          "Bhutan",
+          "Bolivia",
+          "Bosnia Herzegovina",
+          "Botswana",
+          "Brazil",
+          "Brunei",
+          "Bulgaria",
+          "Burkina",
+          "Burundi",
+          "Cambodia",
+          "Cameroon",
+          "Canada",
+          "Cape Verde",
+          "Central African Rep",
+          "Chad",
+          "Chile",
+          "China",
+          "Colombia",
+          "Comoros",
+          "Congo",
+          "Congo {Democratic Rep}",
+          "Costa Rica",
+          "Croatia",
+          "Cuba",
+          "Cyprus",
+          "Czech Republic",
+          "Denmark",
+          "Djibouti",
+          "Dominica",
+          "Dominican Republic",
+          "East Timor",
+          "Ecuador",
+          "Egypt",
+          "El Salvador",
+          "Equatorial Guinea",
+          "Eritrea",
+          "Estonia",
+          "Ethiopia",
+          "Fiji",
+          "Finland",
+          "France",
+          "Gabon",
+          "Gambia",
+          "Georgia",
+          "Germany",
+          "Ghana",
+          "Greece",
+          "Grenada",
+          "Guatemala",
+          "Guinea",
+          "Guinea-Bissau",
+          "Guyana",
+          "Haiti",
+          "Honduras",
+          "Hungary",
+          "Iceland",
+          "India",
+          "Indonesia",
+          "Iran",
+          "Iraq",
+          "Ireland {Republic}",
+          "Israel",
+          "Italy",
+          "Ivory Coast",
+          "Jamaica",
+          "Japan",
+          "Jordan",
+          "Kazakhstan",
+          "Kenya",
+          "Kiribati",
+          "Korea North",
+          "Korea South",
+          "Kosovo",
+          "Kuwait",
+          "Kyrgyzstan",
+          "Laos",
+          "Latvia",
+          "Lebanon",
+          "Lesotho",
+          "Liberia",
+          "Libya",
+          "Liechtenstein",
+          "Lithuania",
+          "Luxembourg",
+          "Macedonia",
+          "Madagascar",
+          "Malawi",
+          "Malaysia",
+          "Maldives",
+          "Mali",
+          "Malta",
+          "Marshall Islands",
+          "Mauritania",
+          "Mauritius",
+          "Mexico",
+          "Micronesia",
+          "Moldova",
+          "Monaco",
+          "Mongolia",
+          "Montenegro",
+          "Morocco",
+          "Mozambique",
+          "Myanmar, {Burma}",
+          "Namibia",
+          "Nauru",
+          "Nepal",
+          "Netherlands",
+          "New Zealand",
+          "Nicaragua",
+          "Niger",
+          "Nigeria",
+          "Norway",
+          "Oman",
+          "Pakistan",
+          "Palau",
+          "Panama",
+          "Papua New Guinea",
+          "Paraguay",
+          "Peru",
+          "Philippines",
+          "Poland",
+          "Portugal",
+          "Qatar",
+          "Romania",
+          "Russian Federation",
+          "Rwanda",
+          "St Kitts & Nevis",
+          "St Lucia",
+          "Saint Vincent & the Grenadines",
+          "Samoa",
+          "San Marino",
+          "Sao Tome & Principe",
+          "Saudi Arabia",
+          "Senegal",
+          "Serbia",
+          "Seychelles",
+          "Sierra Leone",
+          "Singapore",
+          "Slovakia",
+          "Slovenia",
+          "Solomon Islands",
+          "Somalia",
+          "South Africa",
+          "South Sudan",
+          "Spain",
+          "Sri Lanka",
+          "Sudan",
+          "Suriname",
+          "Swaziland",
+          "Sweden",
+          "Switzerland",
+          "Syria",
+          "Taiwan",
+          "Tajikistan",
+          "Tanzania",
+          "Thailand",
+          "Togo",
+          "Tonga",
+          "Trinidad & Tobago",
+          "Tunisia",
+          "Turkey",
+          "Turkmenistan",
+          "Tuvalu",
+          "Uganda",
+          "Ukraine",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States",
+          "Uruguay",
+          "Uzbekistan",
+          "Vanuatu",
+          "Vatican City",
+          "Venezuela",
+          "Vietnam",
+          "Yemen",
+          "Zambia",
+          "Zimbabwe",
+          // Add more countries as needed
+        ];
+
+        // Populate each dropdown with countries
+        for (var j = 0; j < countryDropdowns.length; j++) {
+          var dropdown = countryDropdowns[j];
+
+          // Clear existing options
+          dropdown.innerHTML = '<option value="">Select a country</option>';
+
+          // Populate the dropdown with countries
+          for (var i = 0; i < countries.length; i++) {
+            var option = document.createElement("option");
+            option.value = countries[i];
+            option.text = countries[i];
+            dropdown.appendChild(option);
+          }
+        }
+      }
+
+      // Call the function to populate the country dropdown on page load
+      populateCountries();
+    </script>
+
+
+    <script>
+
+function setupSelect2WithOther(dropdownId, detailsId) {
+  var dropdown = $("#" + dropdownId); // Use jQuery to select the dropdown
+  var details = $("#" + detailsId);
+
+  // Initialize Select2
+  dropdown.select2();
+
+  dropdown.on("change", function (e) {
+    var selectedValue = e.target.value;
+
+
+    if (selectedValue === "Other") {
+      details.show();
+    } else {
+      details.hide();
+    }
+  });
+
+  // Trigger the change event to handle the initial state
+  dropdown.trigger("change");
+}
+
+// Call the function for Select2 dropdown
+
+
+    // All the questions with other option below called below
+      //Q1
+      setupSelect2WithOther("fundingSource", "fundingSourceDetails");
+      //Q9
+      setupSelect2WithOther("caseStudyScale", "caseStudyScaleDetails");
+      //Q13
+      setupSelect2WithOther("researchAreas", "researchAreasDetails");
+      //Q32
+      setupSelect2WithOther("organizationSector", "organizationSectorDetails");
+      //Q37
+      setupSelect2WithOther("coProductionLevel", "coProductionLevelDetails");
+      //Q39
+      setupSelect2WithOther("financingMethod", "financingMethodDetails");
+    </script>
+
+<script>
+  function createJson() {
+    // Define the form fields and their corresponding IDs
+    var formFields = [
+      "resultsUsers",
+      "coProductionLevel",
+      "coProductionLevelText",
+      "socialScienceMethods"
+    ];
+
+    // Create an empty JSON object
+    var formData = {};
+
+    // Loop through the form fields and populate the JSON object
+    formFields.forEach(function (field) {
+      var element = document.getElementById(field);
+
+      // Check if the element is not null
+      if (element !== null) {
+        // Check if the element is a multiple select
+        if (element.tagName.toLowerCase() === "select" && element.multiple) {
+          // For multiple selects, create an array of selected values
+          var selectedOptions = [];
+          for (var i = 0; i < element.options.length; i++) {
+            if (element.options[i].selected) {
+              selectedOptions.push(element.options[i].value);
+            }
+          }
+          formData[field] = selectedOptions;
+        } else {
+          // For other elements, use the element's value
+          formData[field] = element.value;
+        }
+      }
+    });
+
+    // Convert the JSON object to a string
+    var jsonData = JSON.stringify(formData);
+
+    // Create a Blob containing the JSON data
+    var blob = new Blob([jsonData], { type: "application/json" });
+
+    // Create a link element to trigger the download
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "form_data.json";
+
+    // Append the link to the document and trigger a click
+    document.body.appendChild(a);
+    a.click();
+
+    // Remove the link from the document
+    document.body.removeChild(a);
+  }
+</script>
+
+<!-- submission of the first form //-->
+<script>
+function submitForm() {
+  // Get form elements and their values
+  var project_name = document.getElementById("projectName");
+  var project_type = $("#fundingSource"); // Use jQuery to select the select2 dropdown
+  var project_type_other = document.getElementById("fundingSourceText");
+  var coord_host = document.getElementById("projectInstitution");
+  var project_website = document.getElementById("projectWebsite");
+  var project_funding = document.getElementById("projectAmount");
+  var project_start = document.getElementById("projectStartDate");
+  var project_end = document.getElementById("projectEndDate");
+
+  // Check if any required field is empty
+  var isFormValid = true;
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+
+  if (field.value.trim() === "") {
+    if (field.tagName.toLowerCase() === "select" && field.classList.contains("select2-hidden-accessible")) {
+      // For select2, check the select2 value
+      const selectedValue = $(field).val();
+      if (field.hasAttribute("required") && (!selectedValue || selectedValue.length === 0)) {
+        label.addClass("required-field");
+        isFormValid = false;
+      } else {
+        label.removeClass("required-field");
+      }
+    } else {
+      label.addClass("required-field");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("required-field");
+  }
+}
+
+// Call checkAndMarkRequiredField for each field
+checkAndMarkRequiredField(document.getElementById("projectName"));
+checkAndMarkRequiredField(document.getElementById("fundingSource"));
+
+if (project_type.val() == "Other"){
+  checkAndMarkRequiredField(document.getElementById("fundingSourceText"));
+
+}
+
+checkAndMarkRequiredField(document.getElementById("projectInstitution"));
+checkAndMarkRequiredField(document.getElementById("projectWebsite"));
+checkAndMarkRequiredField(document.getElementById("projectAmount"));
+checkAndMarkRequiredField(document.getElementById("projectStartDate"));
+checkAndMarkRequiredField(document.getElementById("projectEndDate"));
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDiv").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  }
+
+  // If all required fields are filled, proceed with form submission
+  var formData = {
+    project_name: project_name.value,
+    project_type: project_type.val(), // Use .val() for select2
+    project_type_other: project_type_other.value,
+    coord_host: coord_host.value,
+    project_website: project_website.value,
+    project_funding: project_funding.value,
+    project_start: project_start.value,
+    project_end: project_end.value,
+    // Add other form fields as needed
+  };
+
+  // Convert the form data to JSON
+  var jsonData = JSON.stringify(formData);
+
+  // Display or use the JSON data as needed
+  console.log(jsonData);
+  // You can also save the JSON data to a file or send it to a server
+
+  // Reset the form
+  $("#warningDiv").hide();
+  document.getElementById("multiSectionFormTwo").reset();}
+
+</script>
+
+<!-- check for form 2, page 1 -->
+<script>
+ function ValidateOne() {
+  // Check if any required field is empty
+  var isFormValid = true;
+  var p = $("#caseStudyScale"); // Use jQuery to select the select2 dropdown
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+
+
+
+
+  // Call checkAndMarkRequiredField for each field
+  checkAndMarkRequiredField(document.getElementById("caseStudyText"));
+  checkAndMarkRequiredField(document.getElementById("coordinatorIntitute"));
+  checkAndMarkRequiredField(document.getElementById("coordinatorName"));
+  checkAndMarkRequiredField(document.getElementById("corrdinatorDetails"));
+  var coordinatorCountry = $("#coordinatorCountry2");
+  checkAndMarkRequiredField(coordinatorCountry[0]);
+  // jQuery's .val() method for the select element
+  var caseStudyScale = $("#caseStudyScale");
+  checkAndMarkRequiredField(caseStudyScale[0]);
+
+  console.log(caseStudyScale[0].value)
+if (document.getElementById(caseStudyScale[0].value) == "Other"){
+  console.log("yo")
+  console.log(caseStudyScale[0].value)
+  checkAndMarkRequiredField(document.getElementById("caseStudyScaleText"));
+}
+
+
+  var Transbound = $("#transboundary");
+  checkAndMarkRequiredField(Transbound[0]);
+  checkAndMarkRequiredField(document.getElementById("caseStudyObjectives"));
+
+
+
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    nextSection(1);
+  }
+}
+  </script>
+
+
+<!-- Submission of the second form //-->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    //Q12
+    const nexus_sectorsSelect = document.getElementById("nexus_sectors");
+    const defaultValues = Array.from(nexus_sectorsSelect.options).map(option => option.value);
+    //Q14
+    const systems_analysisSelect = document.getElementById("systems_analysis");
+    const systems_analysis_default = Array.from(systems_analysisSelect.options).map(option => option.value);
+
+    //Q15
+    const integrated_modelingSelect = document.getElementById("integratedModelling");
+    const integrated_modeling_default = Array.from(integrated_modelingSelect.options).map(option => option.value);
+
+    //Q16
+    const environmental_managementSelect = document.getElementById("envManagement");
+    const environmental_management_default = Array.from(environmental_managementSelect.options).map(option => option.value);
+
+    //Q17
+     const economicsSelect = document.getElementById("economicsMethods");
+    const economics_default = Array.from(economicsSelect.options).map(option => option.value);
+
+    //Q18
+    const statisticsSelect = document.getElementById("statisticsMethods");
+    const statistics_default = Array.from(statisticsSelect.options).map(option => option.value);
+
+    //Q19
+    const social_scienceSelect = document.getElementById("socialScienceMethods");
+    const social_science_default = Array.from(social_scienceSelect.options).map(option => option.value);
+
+    //Q23
+    const climate_projectionsSelect = document.getElementById("climateProjectionsModel");
+    const climate_projections_default = Array.from(climate_projectionsSelect.options).map(option => option.value);
+
+    //Q24
+    const data_typesSelect = document.getElementById("dataTypesUsed");
+    const data_types_default = Array.from(data_typesSelect.options).map(option => option.value);
+
+    //Q25
+    const monitoring_techniquesSelect = document.getElementById("monitoringTechniques");
+    const monitoring_techniques_default = Array.from(monitoring_techniquesSelect.options).map(option => option.value);
+
+    //Q26
+    const ai_metodologySelect = document.getElementById("aiMethodology");
+    const ai_metodology_default = Array.from(ai_metodologySelect.options).map(option => option.value);
+
+    //Q28
+    const stakeholders_involvedSelect = document.getElementById("stakeholders");
+    const stakeholders_involved_default = Array.from(stakeholders_involvedSelect.options).map(option => option.value);
+
+    //Q29
+    const stakeholders_sectorsSelect = document.getElementById("economicSector");
+    const stakeholders_sectors_default = Array.from(stakeholders_sectorsSelect.options).map(option => option.value);
+
+         //Q30
+         const stakeholders_approachSelect = document.getElementById("stakeholderApproach");
+    const stakeholders_approach_default = Array.from(stakeholders_approachSelect.options).map(option => option.value);
+
+      //Q36
+      const important_driversSelect = document.getElementById("nexusDrivers");
+    const important_drivers_default = Array.from(important_driversSelect.options).map(option => option.value);
+
+          //Q42
+          const visualisation_choiceSelect = document.getElementById("disseminationTools");
+    const visualisation_choice_default = Array.from(visualisation_choiceSelect.options).map(option => option.value);
+
+    //Q43
+     const sdg_assessmentSelect = document.getElementById("assessment");
+     //Q47
+     const usage_choiceSelect = document.getElementById("projectOutputsUsage");
+    const usage_choice_default = Array.from(usage_choiceSelect.options).map(option => option.value);
+            //Q48
+            const helix_choiceSelect = document.getElementById("resultsUsers");
+    const helix_choice_default = Array.from(helix_choiceSelect.options).map(option => option.value);
+    //Q49
+    const selected_impactsSelect = document.getElementById("impacts");
+
+
+
+
+    window.submitFormTwo = function () {
+         //Q12
+      const selectedValues = Array.from(nexus_sectorsSelect.selectedOptions).map(option => option.value);
+      const existingValues = selectedValues.filter(value => defaultValues.includes(value));
+      const newValues = selectedValues.filter(value => !defaultValues.includes(value));
+
+         //Q14
+      const selectedValuesSystem = Array.from(systems_analysisSelect.selectedOptions).map(option => option.value);
+      const existingValuesSystem = selectedValuesSystem.filter(value => systems_analysis_default.includes(value));
+      const newValuesSystem = selectedValuesSystem.filter(value => !systems_analysis_default.includes(value));
+
+         //Q15
+      const selected_integrated_modeling = Array.from(integrated_modelingSelect.selectedOptions).map(option => option.value);
+      const existing_integrated_modeling = selected_integrated_modeling.filter(value => integrated_modeling_default.includes(value));
+      const new_integrated_modeling = selected_integrated_modeling.filter(value => !integrated_modeling_default.includes(value));
+
+        //Q16
+      const selected_environmental_management = Array.from(environmental_managementSelect.selectedOptions).map(option => option.value);
+      const existing_environmental_management = selected_environmental_management.filter(value => environmental_management_default.includes(value));
+      const new_environmental_management = selected_environmental_management.filter(value => !environmental_management_default.includes(value));
+
+        //Q17
+      const selected_economics = Array.from(economicsSelect.selectedOptions).map(option => option.value);
+      const existing_economics = selected_economics.filter(value => economics_default.includes(value));
+      const new_economics = selected_economics.filter(value => !economics_default.includes(value));
+
+       //Q18
+       const selected_statistics = Array.from(statisticsSelect.selectedOptions).map(option => option.value);
+      const existing_statistics = selected_statistics.filter(value => statistics_default.includes(value));
+      const new_statistics = selected_statistics.filter(value => !statistics_default.includes(value));
+
+       //Q19
+       const selected_social_science = Array.from(social_scienceSelect.selectedOptions).map(option => option.value);
+      const existing_social_science = selected_social_science.filter(value => social_science_default.includes(value));
+      const new_social_science = selected_social_science.filter(value => !social_science_default.includes(value));
+
+      //Q23
+      const selected_climate_projections = Array.from(climate_projectionsSelect.selectedOptions).map(option => option.value);
+      const existing_climate_projections = selected_climate_projections.filter(value => climate_projections_default.includes(value));
+      const new_climate_projections = selected_climate_projections.filter(value => !climate_projections_default.includes(value));
+
+      //Q24
+      const selected_data_types = Array.from(data_typesSelect.selectedOptions).map(option => option.value);
+      const existing_data_types = selected_data_types.filter(value => data_types_default.includes(value));
+      const new_data_types = selected_data_types.filter(value => !data_types_default.includes(value));
+      //Q25
+      const selected_monitoring_techniques = Array.from(monitoring_techniquesSelect.selectedOptions).map(option => option.value);
+      const existing_monitoring_techniques = selected_monitoring_techniques.filter(value => monitoring_techniques_default.includes(value));
+      const new_monitoring_techniques = selected_monitoring_techniques.filter(value => !monitoring_techniques_default.includes(value));
+
+      //Q26
+      const selected_ai_metodology = Array.from(ai_metodologySelect.selectedOptions).map(option => option.value);
+      const existing_ai_metodology = selected_ai_metodology.filter(value => ai_metodology_default.includes(value));
+      const new_ai_metodology = selected_ai_metodology.filter(value => !ai_metodology_default.includes(value));
+
+      //Q28
+      const selected_stakeholders_involved = Array.from(stakeholders_involvedSelect.selectedOptions).map(option => option.value);
+      const existing_stakeholders_involved = selected_stakeholders_involved.filter(value => stakeholders_involved_default.includes(value));
+      const new_stakeholders_involved = selected_stakeholders_involved.filter(value => !stakeholders_involved_default.includes(value));
+
+       //Q29
+       const selected_stakeholders_sectors = Array.from(stakeholders_sectorsSelect.selectedOptions).map(option => option.value);
+      const existing_stakeholders_sectors = selected_stakeholders_sectors.filter(value => stakeholders_sectors_default.includes(value));
+      const new_stakeholders_sectors = selected_stakeholders_sectors.filter(value => !stakeholders_sectors_default.includes(value));
+
+      //Q30
+      const selected_stakeholders_approach = Array.from(stakeholders_approachSelect.selectedOptions).map(option => option.value);
+      const existing_stakeholders_approach = selected_stakeholders_approach.filter(value => stakeholders_approach_default.includes(value));
+      const new_stakeholders_approach = selected_stakeholders_approach.filter(value => !stakeholders_approach_default.includes(value));
+
+      //Q36
+      const selected_important_drivers = Array.from(important_driversSelect.selectedOptions).map(option => option.value);
+      const existing_important_drivers = selected_important_drivers.filter(value => important_drivers_default.includes(value));
+      const new_important_drivers = selected_important_drivers.filter(value => !important_drivers_default.includes(value));
+
+
+      //Q42
+      const selected_visualisation_choice = Array.from(visualisation_choiceSelect.selectedOptions).map(option => option.value);
+      const existing_visualisation_choice = selected_visualisation_choice.filter(value => visualisation_choice_default.includes(value));
+      const new_visualisation_choice = selected_visualisation_choice.filter(value => !visualisation_choice_default.includes(value));
+
+      //Q43
+      const selected_sdg_assessment = Array.from(sdg_assessmentSelect.selectedOptions).map(option => option.value);
+
+      //Q47
+      const selected_usage_choice = Array.from(usage_choiceSelect.selectedOptions).map(option => option.value);
+      const existing_usage_choice = selected_usage_choice.filter(value => usage_choice_default.includes(value));
+      const new_usage_choice = selected_usage_choice.filter(value => !usage_choice_default.includes(value));
+
+      //Q48
+      const selected_helix_choice = Array.from(helix_choiceSelect.selectedOptions).map(option => option.value);
+      const existing_helix_choice = selected_helix_choice.filter(value => helix_choice_default.includes(value));
+      const new_helix_choice = selected_helix_choice.filter(value => !helix_choice_default.includes(value));
+
+      //Q49
+      const selected_selected_impacts = Array.from(selected_impactsSelect.selectedOptions).map(option => option.value);
+
+      // Get other form elements and their values
+      var case_study_name = document.getElementById("caseStudyText").value;
+      var case_study_leader_institution = document.getElementById("coordinatorIntitute").value;
+      var case_study_leader_name = document.getElementById("coordinatorName").value;
+      var case_study_leader_contact = document.getElementById("corrdinatorDetails").value;
+      var case_study_country = document.getElementById("coordinatorCountry2").value;
+      var case_study_scale = document.getElementById("caseStudyScale").value;
+      var case_study_scale_other = document.getElementById("caseStudyScaleText").value;
+      var case_study_transboundary = document.getElementById("transboundary").value;
+      var case_study_objectives = document.getElementById("caseStudyObjectives").value;
+      //Q13
+      var layers_of_analysis = document.getElementById("researchAreas").value;
+      var layers_of_analysis_other = document.getElementById("researchAreasText").value;
+      //Q20
+      var semantics_ontologies = document.getElementById("ontologyEngineering").value;
+      var semantics_ontologies_specify = document.getElementById("ontologyEngineeringText").value;
+      //Q21
+      var footprint_calculations = document.getElementById("footprintCalculations").value;
+      var footprint_calculations_specify = document.getElementById("footprintCalculationsText").value;
+      //Q22
+      var descision_support_system = document.getElementById("decisionSupportSystem").value;
+      var descision_support_system_details = document.getElementById("decisionSupportSystemText").value;
+      //Q27
+      var nexus_indicators = document.getElementById("nexusIndicators").value;
+      //Q31
+      var biggest_org = document.getElementById("biggestActor").value;
+      //Q32
+      var biggest_org_sector = document.getElementById("organizationSector").value;
+      var biggest_org_sector_other = document.getElementById("organizationSectorText").value;
+      //Q33
+      var biggest_org_engaged = document.getElementById("organizationEngagement").value;
+      //Q34
+      var governance_assessment = document.getElementById("governanceAssessment").value;
+      var governance_assessment_specify = document.getElementById("governanceAssessmentText").value;
+      //Q35
+      var plocy_coherence_assesment = document.getElementById("policyCoherenceAssessment").value;
+      var plocy_coherence_assesment_specify = document.getElementById("policyCoherenceAssessmentText").value;
+      //Q37
+      var policy_coproduction = document.getElementById("coProductionLevel").value;
+      var policy_coproduction_specify = document.getElementById("coProductionLevelText").value;
+      //Q38
+      var current_implementation = document.getElementById("implementationLevel").value;
+      //Q39
+      var solution_financing = document.getElementById("financingMethod").value;
+      var solution_financing_specify = document.getElementById("financingMethodText").value;
+      //Q40
+      var governance_challenges = document.getElementById("governanceChallenges").value;
+      //Q41
+      var governance_lessons = document.getElementById("lessonsLearned").value;
+      //Q44
+      var sdg_assessmet_method = document.getElementById("sdgAssessmentMethod").value;
+      //Q45
+      var data_mgmt_plan = document.getElementById("dataManagementPlan").value;
+      var data_mgmt_plan_specify = document.getElementById("dataManagementPlanText").value;
+      //Q46
+      var outputs_choice = document.getElementById("caseStudyOutputs").value;
+      //Q50
+      var impact_description = document.getElementById("achieved").value;
+
+
+
+
+      // Combine selected values with other form data
+      var formData = {
+
+        case_study_name: case_study_name,
+
+        case_study_leader_institution: case_study_leader_institution,
+
+        case_study_leader_name: case_study_leader_name,
+
+        case_study_leader_contact: case_study_leader_contact,
+        //Q8
+        case_study_country: case_study_country,
+        //Q9
+        case_study_scale: case_study_scale,
+        case_study_scale_other: case_study_scale_other,
+        //Q10
+        case_study_transboundary: case_study_transboundary,
+        case_study_objectives: case_study_objectives,
+
+        //Q12
+        nexus_sectors: existingValues, // Add selected values to the formData
+        nexus_sectors_other: newValues,
+        //Q13
+        layers_of_analysis: layers_of_analysis,
+        layers_of_analysis_other: layers_of_analysis_other,
+        //Q14
+        systems_analysis: existingValuesSystem,
+        systems_analysis_other: newValuesSystem,
+        //Q15
+        integrated_modeling: existing_integrated_modeling,
+        integrated_modeling_specify: new_integrated_modeling,
+        //Q16
+        environmental_management: existing_environmental_management,
+        environmental_management_specify: new_environmental_management,
+        //Q17
+        economics: existing_economics,
+        economics_specify: new_economics,
+        //Q18
+        statistics: existing_statistics,
+        statistics_specify: new_statistics,
+        //Q19
+        social_science: existing_social_science,
+        social_science_specify: new_social_science,
+        //Q20
+        semantics_ontologies: semantics_ontologies,
+        semantics_ontologies_specify: semantics_ontologies_specify,
+        //Q21
+        footprint_calculations: footprint_calculations,
+        footprint_calculations_specify: footprint_calculations_specify,
+        //Q22
+        descision_support_system: descision_support_system,
+        descision_support_system_details: descision_support_system_details,
+        //Q23
+        climate_projections: existing_climate_projections,
+        climate_projections_specify: new_climate_projections,
+        //Q24
+        data_types: existing_data_types,
+        data_types_specify: new_data_types,
+        //Q25
+        monitoring_techniques: existing_monitoring_techniques,
+        monitoring_techniques_specify: new_monitoring_techniques,
+        //Q26
+        ai_metodology: existing_ai_metodology,
+        ai_metodology_specify: new_ai_metodology,
+        //Q27
+        nexus_indicators: nexus_indicators,
+        //Q28
+        stakeholders_involved: existing_stakeholders_involved,
+        stakeholders_involved_specify: new_stakeholders_involved,
+        //Q29
+        stakeholders_sectors: existing_stakeholders_sectors,
+        stakeholders_sectors_specify: new_stakeholders_sectors,
+        //Q30
+        stakeholders_approach: existing_stakeholders_approach,
+        stakeholders_approach_specify: new_stakeholders_approach,
+        //Q31
+        biggest_org: biggest_org,
+        //Q32
+        biggest_org_sector: biggest_org_sector,
+        biggest_org_sector_other: biggest_org_sector_other,
+        //Q33
+        biggest_org_engaged: biggest_org_engaged,
+        //Q34
+        governance_assessment: governance_assessment,
+        governance_assessment_specify: governance_assessment_specify,
+        //Q35
+        plocy_coherence_assesment: plocy_coherence_assesment,
+        plocy_coherence_assesment_specify: plocy_coherence_assesment_specify,
+        //Q36
+        important_drivers: existing_important_drivers,
+        important_drivers_specify: new_important_drivers,
+        //Q37
+        policy_coproduction: policy_coproduction,
+        policy_coproduction_specify: policy_coproduction_specify,
+        //Q38
+        current_implementation: current_implementation,
+        //Q39
+        solution_financing: solution_financing,
+        solution_financing_specify: solution_financing_specify,
+        //Q40
+        governance_challenges: governance_challenges,
+        //Q41
+        governance_lessons: governance_lessons,
+        //Q42
+        visualisation_choice: existing_visualisation_choice,
+        visualisation_choice_specify: new_visualisation_choice,
+        //Q43
+        sdg_assessment: selected_sdg_assessment,
+        //Q44
+        sdg_assessmet_method: sdg_assessmet_method,
+        //Q45
+        data_mgmt_plan: data_mgmt_plan,
+        data_mgmt_plan_specify: data_mgmt_plan_specify,
+        //Q46
+        outputs_choice: outputs_choice,
+        //Q47
+        usage_choice: existing_usage_choice,
+        usage_other_purpose: new_usage_choice,
+        //Q48
+        helix_choice: existing_helix_choice,
+        helix_choice_specify: new_helix_choice,
+        //Q49
+        selected_impacts: selected_selected_impacts,
+        //Q50
+        impact_description: impact_description
+
+      };
+
+      // Convert the form data to JSON
+      var jsonData = JSON.stringify(formData);
+
+      // Display or use the JSON data as needed
+      console.log(jsonData);
+
+      // Optionally, reset the form
+      document.getElementById("multiSectionFormTwo").reset();
+    };
+
+
+  });
+
+
+</script>
+
+<!-- Validations below -->
+
+<script>
+  function validateEmail(input) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = emailRegex.test(input.value);
+
+    if (isValid) {
+      input.classList.remove("invalid");
+    } else {
+      input.classList.add("invalid");
+    }
+  }
+  </script>
+
+
+
+
+  </body>
+</html>

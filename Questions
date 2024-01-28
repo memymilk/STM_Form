@@ -1,0 +1,7 @@
+Questions:
+1. In case the user selects "other" - should the original field record nothing, or should it record "other"? Asking for statistics reasons
+Right now the single select records "other" and th multitag select records nothing, which way to unify it?
+2. There is a typo in var var footprint_calculations_specify in the example
+3. Q37 - the field has an option for custom input which says it is mandatory, but there is no variable for it in the list, I made it: policy_coproduction_specify
+4. Q38 - do we need a custom field for other? There is no variable name for it so I assumed we do not, but want to double check.
+5. I am not sure between the names sdg_assessment, selected_adgs and sdg_assessmet_method? I put sdg_assessment for Q43 and sdg_assessmet_method for Q44, not sure what does selected_adgs belong to.

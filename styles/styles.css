@@ -86,10 +86,24 @@ color: grey;
   color: #ACACAC;
 }
 
-label{margin-top:10px;}
+label{margin-top:16px;
+margin-bottom:4px;}
 
 .required-field {
-  border: 1px solid red !important;
-  border-radius:5px;
   color:red;
 }
+/* Add a red border to the required Select2 dropdown when not filled out */
+.select2-container--bootstrap-5.required-field .select2-selection--single {
+  border: 1px solid red;
+}
+#warningDiv{
+  margin:auto;
+  color:red;
+  text-align:center;
+}
+#warningDivSecond{
+  margin:auto;
+  color:red;
+  text-align:center;
+}
+.error-label{  color:red;}
