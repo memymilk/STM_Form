@@ -438,7 +438,7 @@
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="nextSection(2)"
+                  onclick="ValidateTwo()"
                 >
                   Next
                 </button>
@@ -901,7 +901,7 @@ style="display: none"
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="nextSection(3)"
+                  onclick="ValidateThree()"
                 >
                   Next
                 </button>
@@ -1113,7 +1113,7 @@ style="display: none"
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="nextSection(4)"
+                  onclick="ValidateFour()"
                 >
                   Next
                 </button>
@@ -1348,7 +1348,7 @@ style="display: none"
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="nextSection(5)"
+                  onclick="ValidateFive()"
                 >
                   Next
                 </button>
@@ -1513,8 +1513,10 @@ style="display: none"
                 <button
                   type="button"
                   class="btn btn-primary"
-                  onclick="nextSection(6)"
-                >                  Next
+                  onclick="ValidateSix()"
+                >
+                  Next
+
                 </button>
               </div>
               <!-- end of button container -->
@@ -1675,19 +1677,18 @@ style="display: none"
                 </button>
               </div>
               <div class="d-flex justify-content-center">
-               <!--BUTTON HERE -->
-              </div>
+                <button
+                type="button"
+                class="btn btn-primary"
+                onclick="ValidateSeven()"
+              >
+                Submit case study
+              </button>              </div>
               <!-- end of button container -->
             </div>
             <div id="warningDivSecond" class="mt-4" style="display:none">The form can not be submitted unless you fill out all the required fields (marked in red)</div>
 
-            <button
-            type="button"
-            class="btn btn-primary"
-            onclick="submitFormTwo()"
-          >
-            Submit case study
-          </button>
+
             <!-- Fields for 7 -->
           </form>
         </div>
@@ -2288,32 +2289,29 @@ checkAndMarkRequiredField(document.getElementById("projectEndDate"));
   }
 }
 
-
-
-
-
   // Call checkAndMarkRequiredField for each field
   checkAndMarkRequiredField(document.getElementById("caseStudyText"));
   checkAndMarkRequiredField(document.getElementById("coordinatorIntitute"));
   checkAndMarkRequiredField(document.getElementById("coordinatorName"));
   checkAndMarkRequiredField(document.getElementById("corrdinatorDetails"));
+
   var coordinatorCountry = $("#coordinatorCountry2");
   checkAndMarkRequiredField(coordinatorCountry[0]);
   // jQuery's .val() method for the select element
   var caseStudyScale = $("#caseStudyScale");
   checkAndMarkRequiredField(caseStudyScale[0]);
 
-  console.log(caseStudyScale[0].value)
-if (document.getElementById(caseStudyScale[0].value) == "Other"){
-  console.log("yo")
-  console.log(caseStudyScale[0].value)
-  checkAndMarkRequiredField(document.getElementById("caseStudyScaleText"));
-}
-
 
   var Transbound = $("#transboundary");
   checkAndMarkRequiredField(Transbound[0]);
   checkAndMarkRequiredField(document.getElementById("caseStudyObjectives"));
+
+  console.log(caseStudyScale[0].value)
+if (caseStudyScale[0].value === "Other"){
+  console.log("yo")
+  console.log("aand now?", caseStudyScale[0].value)
+  checkAndMarkRequiredField(document.getElementById("caseStudyScaleText"));
+}
 
 
 
@@ -2325,8 +2323,437 @@ if (document.getElementById(caseStudyScale[0].value) == "Other"){
     return;
   } else{
     nextSection(1);
+    $("#warningDivSecond").hide();
   }
 }
+
+function ValidateTwo() {
+  // Check if any required field is empty
+  var isFormValid = true;
+  var p = $("#caseStudyScale"); // Use jQuery to select the select2 dropdown
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+
+  var sectors = $("#nexus_sectors");
+  checkAndMarkRequiredField(sectors[0]);
+  // jQuery's .val() method for the select element
+  var research = $("#researchAreas");
+  checkAndMarkRequiredField(research[0]);
+
+
+
+  console.log(research[0].value)
+if (research[0].value === "Other"){
+  console.log("yo")
+  console.log("aand now?", research[0].value)
+  checkAndMarkRequiredField(document.getElementById("researchAreasText"));
+} else{console.log("nah", research[0].value)}
+
+
+
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    nextSection(2);
+    $("#warningDivSecond").hide();
+  }
+}
+
+
+function ValidateThree() {
+  // Check if any required field is empty
+  var isFormValid = true;
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+  //Q14
+  var systems = $("#systems_analysis");
+  checkAndMarkRequiredField(systems[0]);
+
+  //Q15
+  var integrated = $("#integratedModelling");
+  checkAndMarkRequiredField(integrated[0]);
+
+  var environmental = $("#envManagement");
+  checkAndMarkRequiredField(environmental[0]);
+
+  var economics = $("#economicsMethods");
+  checkAndMarkRequiredField(economics[0]);
+
+  var statistics = $("#statisticsMethods");
+  checkAndMarkRequiredField(statistics[0]);
+
+  var social = $("#socialScienceMethods");
+  checkAndMarkRequiredField(social[0]);
+
+    //Q20
+  var ontology = $("#ontologyEngineering");
+  checkAndMarkRequiredField(ontology[0]);
+
+  if (ontology[0].value === "Yes"){
+  checkAndMarkRequiredField(document.getElementById("ontologyEngineeringText"));
+}
+
+  var footprint = $("#footprintCalculations");
+  checkAndMarkRequiredField(footprint[0]);
+
+  if (footprint[0].value === "Yes"){
+  checkAndMarkRequiredField(document.getElementById("footprintCalculationsText"));
+}
+
+  var descision = $("#decisionSupportSystem");
+  checkAndMarkRequiredField(descision[0]);
+
+  if (descision[0].value === "Yes"){
+  checkAndMarkRequiredField(document.getElementById("decisionSupportSystemText"));
+}
+
+  var climate = $("#climateProjectionsModel");
+  checkAndMarkRequiredField(climate[0]);
+
+  var dataused = $("#dataTypesUsed");
+  checkAndMarkRequiredField(dataused[0]);
+
+  //Q25
+  var monitor = $("#monitoringTechniques");
+  checkAndMarkRequiredField(monitor[0]);
+
+  var ai = $("#aiMethodology");
+  checkAndMarkRequiredField(ai[0]);
+
+  var indicator = $("#nexusIndicators");
+  checkAndMarkRequiredField(indicator[0]);
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    nextSection(3);
+    $("#warningDivSecond").hide();
+  }
+}
+
+function ValidateFour() {
+  // Check if any required field is empty
+  var isFormValid = true;
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+  //Q28
+  var stake = $("#stakeholders");
+  checkAndMarkRequiredField(stake[0]);
+
+  var econom = $("#economicSector");
+  checkAndMarkRequiredField(econom[0]);
+
+  //Q30
+  var stakeappr = $("#stakeholderApproach");
+  checkAndMarkRequiredField(stakeappr[0]);
+
+  var actor = $("#biggestActor");
+  checkAndMarkRequiredField(actor[0]);
+
+  var orgsector = $("#organizationSector");
+  checkAndMarkRequiredField(orgsector[0]);
+
+  if (orgsector[0].value === "Other"){
+  checkAndMarkRequiredField(document.getElementById("organizationSectorText"));
+}
+
+  var engage = $("#organizationEngagement");
+  checkAndMarkRequiredField(engage[0]);
+
+
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    nextSection(4);
+    $("#warningDivSecond").hide();
+  }
+}
+
+
+function ValidateFive() {
+  // Check if any required field is empty
+  var isFormValid = true;
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+  //Q34
+  var govassesm = $("#governanceAssessment");
+  checkAndMarkRequiredField(govassesm[0]);
+
+  if (govassesm[0].value === "Yes"){
+  checkAndMarkRequiredField(document.getElementById("governanceAssessmentText"));
+}
+
+  //Q35
+  var policycoherence = $("#policyCoherenceAssessment");
+  checkAndMarkRequiredField(policycoherence[0]);
+
+  var nexus = $("#nexusDrivers");
+  checkAndMarkRequiredField(nexus[0]);
+
+  var coprod = $("#coProductionLevel");
+  checkAndMarkRequiredField(coprod[0]);
+
+  if (coprod[0].value === "Other"){
+  checkAndMarkRequiredField(document.getElementById("coProductionLevelText"));
+}
+
+  var implement = $("#implementationLevel");
+  checkAndMarkRequiredField(implement[0]);
+
+
+  var finance = $("#financingMethod");
+  checkAndMarkRequiredField(finance[0]);
+
+  if (finance[0].value === "Other"){
+  checkAndMarkRequiredField(document.getElementById("financingMethodText"));
+}
+
+  //Q40
+  var govchallenge = $("#governanceChallenges");
+  checkAndMarkRequiredField(govchallenge[0]);
+
+  var lesson = $("#lessonsLearned");
+  checkAndMarkRequiredField(lesson[0]);
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    nextSection(5);
+    $("#warningDivSecond").hide();
+  }
+}
+
+
+
+function ValidateSix() {
+  // Check if any required field is empty
+  var isFormValid = true;
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+  //Q42
+  var disseminate = $("#disseminationTools");
+  checkAndMarkRequiredField(disseminate[0]);
+
+  var sdg = $("#assessment");
+  checkAndMarkRequiredField(sdg[0]);
+
+  var sdgmethod = $("#sdgAssessmentMethod");
+  checkAndMarkRequiredField(sdgmethod[0]);
+
+  //Q45
+  var datamanage = $("#dataManagementPlan");
+  checkAndMarkRequiredField(datamanage[0]);
+
+  if (datamanage[0].value === "Yes"){
+  checkAndMarkRequiredField(document.getElementById("dataManagementPlanText"));
+}
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    nextSection(6);
+    $("#warningDivSecond").hide();
+  }
+}
+
+
+function ValidateSeven() {
+  // Check if any required field is empty
+  var isFormValid = true;
+
+  function checkAndMarkRequiredField(field) {
+  const label = $("label[for='" + field.id + "']");
+  //console.log(field.id); // Log the field ID to the console
+
+  if (field.value.trim() === "") {
+   // console.log("Empty field"); // Log when the field is empty
+
+    if (field.tagName.toLowerCase() === "select" && $(field).hasClass("select2-hidden-accessible")) {
+      // For Select2, check if it's empty
+      const selectedValue = $(field).val();
+      if (!selectedValue || selectedValue.length === 0) {
+        label.addClass("error-label");
+        isFormValid = false;
+      } else {
+        label.removeClass("error-label");
+      }
+    } else {
+      label.addClass("error-label");
+      isFormValid = false;
+    }
+  } else {
+    label.removeClass("error-label");
+  }
+}
+
+  //Q46
+  var out = $("#caseStudyOutputs");
+  checkAndMarkRequiredField(out[0]);
+
+  var use = $("#projectOutputsUsage");
+  checkAndMarkRequiredField(use[0]);
+
+  var resultuser = $("#resultsUsers");
+  checkAndMarkRequiredField(resultuser[0]);
+
+  var impact = $("#impacts");
+  checkAndMarkRequiredField(impact[0]);
+
+  //Q50
+   var achieve = $("#achieved");
+  checkAndMarkRequiredField(achieve[0]);
+
+
+  // If any required field is empty, stop the function and prevent form submission
+  if (!isFormValid) {
+    $("#warningDivSecond").show(); // Assuming the warning div has an id of "warningDiv"
+    alert("Please fill out all required fields.");
+    return;
+  } else{
+    submitFormTwo();
+    $("#warningDivSecond").hide();
+  }
+}
+
+
+
   </script>
 
 
