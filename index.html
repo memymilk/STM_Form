@@ -22,6 +22,15 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="scripts/field_validation.js"></script>
   <script src="scripts/populatecountries.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<!-- Load d3-cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+
+
+
+
   </head>
   <body class="colouredBg">
     <div class="container mb-5 mt-5">
@@ -39,9 +48,12 @@
           <p>
             Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
           </p>
+          <div id="my_dataviz"></div>
           <h5 class="mt-4">What you can do</h5>
           <p>
             Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.
+            <br>
+
           </p>
           <br />
 
@@ -101,14 +113,6 @@
     First, we need to have a canvas in our page. It's recommended to give the chart its own container for [responsiveness](../configuration/responsive.md).
 
         -->
-
-
-
-
-
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-     <!-- SDG -->
-
       <div style="height:500px;width:500px;">
       <canvas id="radarChart" ></canvas>
     </div>
@@ -126,54 +130,177 @@
 
       const jsonData3 ={"case_study_name":"Project","case_study_leader_institution":"Cambridge","case_study_leader_name":"Lenin","case_study_leader_contact":"lenin@gmail.com","case_study_country":"Algeria","case_study_scale":"International","case_study_scale_other":"","case_study_transboundary":"No","case_study_objectives":"Text","nexus_sectors":["Energy","LandAvailability","Ecosystems","Climate"],"nexus_sectors_other":[],"layers_of_analysis":"Economic","layers_of_analysis_other":"","systems_analysis":["MultiSectoral","MaterialFlows","Informatics","CausalLoop"],"systems_analysis_other":[],"integrated_modeling":["SWAT","CLEWS","WEFNexus"],"integrated_modeling_specify":[],"environmental_management":["Footprinting","LifeCycleAssessment"],"environmental_management_specify":[],"economics":["CostBenefit","TradeOffSynergy","SocialAccounting"],"economics_specify":[],"statistics":["RegressionStatistics","TrendAnalysis"],"statistics_specify":[],"social_science":["Questionnaires, surveys, or interviews","Agent-based modelling","Delphi technique"],"social_science_specify":[],"semantics_ontologies":"No","semantics_ontologies_specify":"","footprint_calculations":"No","footprint_calculations_specify":"","descision_support_system":"No","descision_support_system_details":"","climate_projections":["CAPRI","MAGPIE","E3ME","MAGNET"],"climate_projections_specify":[],"data_types":["Lab-scale","Field-scale","Literature"],"data_types_specify":[],"monitoring_techniques":["Sensors","Satellite","Crowd Sourcing"],"monitoring_techniques_specify":[],"ai_metodology":["MachineLearning","DeepLearning","SWORM"],"ai_metodology_specify":[],"nexus_indicators":"Text","stakeholders_involved":["PrivateSector","GovernmentalStakeholders"],"stakeholders_involved_specify":[],"stakeholders_sectors":["WaterResources","Tourism","Media"],"stakeholders_sectors_specify":[],"stakeholders_approach":["LivingLabs","MultiStakeholderForum","ScenarioPlanning"],"stakeholders_approach_specify":[],"biggest_org":"No","biggest_org_sector":"Food","biggest_org_sector_other":"","biggest_org_engaged":"No","governance_assessment":"No","governance_assessment_specify":"","plocy_coherence_assesment":"No","plocy_coherence_assesment_specify":"","important_drivers":["Technological","Cultural","Socio-economic"],"important_drivers_specify":[],"policy_coproduction":"ScientificTeam","policy_coproduction_specify":"","current_implementation":"SomeImplemented","solution_financing":"CoFinanced","solution_financing_specify":"","governance_challenges":"Text","governance_lessons":"Text","visualisation_choice":["Dashboard","DecisionSupportTools","ARVR"],"visualisation_choice_specify":[],"sdg_assessment":["SdgHunger","SdgIndustry"],"sdg_assessmet_method":"Text","data_mgmt_plan":"No","data_mgmt_plan_specify":"","outputs_choice":"Teaching","usage_choice":["TechReadiness","Commercialization","Education"],"usage_other_purpose":[],"helix_choice":["Academia","Government","Industry"],"helix_choice_specify":[],"selected_impacts":["Technological","Political"],"impact_description":"Text"};
 
-       const jsonData4 ={"case_study_name":"Project","case_study_leader_institution":"Cambridge","case_study_leader_name":"Lenin","case_study_leader_contact":"lenin@gmail.com","case_study_country":"Algeria","case_study_scale":"International","case_study_scale_other":"","case_study_transboundary":"No","case_study_objectives":"Text","nexus_sectors":["Energy","LandAvailability","Ecosystems","Climate"],"nexus_sectors_other":[],"layers_of_analysis":"Economic","layers_of_analysis_other":"","systems_analysis":["MultiSectoral","MaterialFlows","Informatics","CausalLoop"],"systems_analysis_other":[],"integrated_modeling":["SWAT","CLEWS","WEFNexus"],"integrated_modeling_specify":[],"environmental_management":["Footprinting","LifeCycleAssessment"],"environmental_management_specify":[],"economics":["CostBenefit","TradeOffSynergy","SocialAccounting"],"economics_specify":[],"statistics":["RegressionStatistics","TrendAnalysis"],"statistics_specify":[],"social_science":["Questionnaires, surveys, or interviews","Agent-based modelling","Delphi technique"],"social_science_specify":[],"semantics_ontologies":"No","semantics_ontologies_specify":"","footprint_calculations":"No","footprint_calculations_specify":"","descision_support_system":"No","descision_support_system_details":"","climate_projections":["CAPRI","MAGPIE","E3ME","MAGNET"],"climate_projections_specify":[],"data_types":["Lab-scale","Field-scale","Literature"],"data_types_specify":[],"monitoring_techniques":["Sensors","Satellite","Crowd Sourcing"],"monitoring_techniques_specify":[],"ai_metodology":["MachineLearning","DeepLearning","SWORM"],"ai_metodology_specify":[],"nexus_indicators":"Text","stakeholders_involved":["PrivateSector","GovernmentalStakeholders"],"stakeholders_involved_specify":[],"stakeholders_sectors":["WaterResources","Tourism","Media"],"stakeholders_sectors_specify":[],"stakeholders_approach":["LivingLabs","MultiStakeholderForum","ScenarioPlanning"],"stakeholders_approach_specify":[],"biggest_org":"No","biggest_org_sector":"Food","biggest_org_sector_other":"","biggest_org_engaged":"No","governance_assessment":"No","governance_assessment_specify":"","plocy_coherence_assesment":"No","plocy_coherence_assesment_specify":"","important_drivers":["Technological","Cultural","Socio-economic"],"important_drivers_specify":[],"policy_coproduction":"ScientificTeam","policy_coproduction_specify":"","current_implementation":"SomeImplemented","solution_financing":"CoFinanced","solution_financing_specify":"","governance_challenges":"Text","governance_lessons":"Text","visualisation_choice":["Dashboard","DecisionSupportTools","ARVR"],"visualisation_choice_specify":[],"sdg_assessment":["SdgHunger","SdgEducation","SdgHealth"],"sdg_assessmet_method":"Text","data_mgmt_plan":"No","data_mgmt_plan_specify":"","outputs_choice":"Teaching","usage_choice":["TechReadiness","Commercialization","Education"],"usage_other_purpose":[],"helix_choice":["Academia","Government","Industry"],"helix_choice_specify":[],"selected_impacts":["Technological","Political"],"impact_description":"Text"};
+       const jsonData4 ={"case_study_name":"Project","case_study_leader_institution":"Cambridge","case_study_leader_name":"Lenin","case_study_leader_contact":"lenin@gmail.com","case_study_country":"Algeria","case_study_scale":"International","case_study_scale_other":"","case_study_transboundary":"No","case_study_objectives":"Text","nexus_sectors":["Energy","LandAvailability","Ecosystems","Climate"],"nexus_sectors_other":[],"layers_of_analysis":"Economic","layers_of_analysis_other":"","systems_analysis":["MultiSectoral","MaterialFlows","Informatics","CausalLoop"],"systems_analysis_other":[],"integrated_modeling":["WEFNexus"],"integrated_modeling_specify":[],"environmental_management":["Footprinting","LifeCycleAssessment"],"environmental_management_specify":[],"economics":["CostBenefit","TradeOffSynergy","SocialAccounting"],"economics_specify":[],"statistics":["RegressionStatistics","TrendAnalysis"],"statistics_specify":[],"social_science":["Questionnaires, surveys, or interviews","Agent-based modelling","Delphi technique"],"social_science_specify":[],"semantics_ontologies":"No","semantics_ontologies_specify":"","footprint_calculations":"No","footprint_calculations_specify":"","descision_support_system":"No","descision_support_system_details":"","climate_projections":["CAPRI","MAGPIE","E3ME","MAGNET"],"climate_projections_specify":[],"data_types":["Lab-scale","Field-scale","Literature"],"data_types_specify":[],"monitoring_techniques":["Sensors","Satellite","Crowd Sourcing"],"monitoring_techniques_specify":[],"ai_metodology":["MachineLearning","DeepLearning","SWORM"],"ai_metodology_specify":[],"nexus_indicators":"Text","stakeholders_involved":["PrivateSector","GovernmentalStakeholders"],"stakeholders_involved_specify":[],"stakeholders_sectors":["WaterResources","Tourism","Media"],"stakeholders_sectors_specify":[],"stakeholders_approach":["LivingLabs","MultiStakeholderForum","ScenarioPlanning"],"stakeholders_approach_specify":[],"biggest_org":"No","biggest_org_sector":"Food","biggest_org_sector_other":"","biggest_org_engaged":"No","governance_assessment":"No","governance_assessment_specify":"","plocy_coherence_assesment":"No","plocy_coherence_assesment_specify":"","important_drivers":["Technological","Cultural","Socio-economic"],"important_drivers_specify":[],"policy_coproduction":"ScientificTeam","policy_coproduction_specify":"","current_implementation":"SomeImplemented","solution_financing":"CoFinanced","solution_financing_specify":"","governance_challenges":"Text","governance_lessons":"Text","visualisation_choice":["Dashboard","DecisionSupportTools","ARVR"],"visualisation_choice_specify":[],"sdg_assessment":["SdgHunger","SdgEducation","SdgHealth"],"sdg_assessmet_method":"Text","data_mgmt_plan":"No","data_mgmt_plan_specify":"","outputs_choice":"Teaching","usage_choice":["TechReadiness","Commercialization","Education"],"usage_other_purpose":[],"helix_choice":["Academia","Government","Industry"],"helix_choice_specify":[],"selected_impacts":["Technological","Political"],"impact_description":"Text"};
 
 
 
           // Combine sdg_assessment fields from both JSON objects
           const combinedSdgAssessment = [...jsonData1.sdg_assessment, ...jsonData2.sdg_assessment, ...jsonData3.sdg_assessment, ...jsonData4.sdg_assessment];
+const frequencyMap = combinedSdgAssessment.reduce((acc, val) => {
+        acc[val] = (acc[val] || 0) + 1;
+        return acc;
+    }, {});
 
-          // Count the frequency of each item
-          const frequencyMap = combinedSdgAssessment.reduce((acc, val) => {
-              acc[val] = (acc[val] || 0) + 1;
-              return acc;
-          }, {});
+    // Extract labels (categories) and data (frequency) for the radar chart
+    const labels = Object.keys(frequencyMap);
+    const data = Object.values(frequencyMap);
 
-          // Extract labels (categories) and data (frequency) for the radar chart
-          const labels = Object.keys(frequencyMap);
-          const data = Object.values(frequencyMap);
+    // Radar chart configuration
+    const radarConfig = {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'SDG Assesment',
+                data: data,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }
+        }
+    };
 
-          // Radar chart configuration
-          const config = {
-              type: 'radar',
-              data: {
-                  labels: labels,
-                  datasets: [{
-                      label: 'Frequency',
-                      data: data,
-                      backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                      borderColor: 'rgba(255, 99, 132, 1)',
-                      borderWidth: 1
-                  }]
-              },
-              options: {
-                  scale: {
-                      ticks: {
-                          beginAtZero: true,
-                          stepSize: 1
-                      }
-                  }
-              }
-          };
+    // Create radar chart
+    const radarChartCanvas = document.getElementById('radarChart').getContext('2d');
+    new Chart(radarChartCanvas, radarConfig);
+
+    // Combine integrated_modeling fields from both JSON objects
+    const combinedIntegratedModeling = [...jsonData1.integrated_modeling, ...jsonData2.integrated_modeling, ...jsonData3.integrated_modeling, ...jsonData4.integrated_modeling,];
+
+    // Count the frequency of each item
+    const frequencyMapIntegratedModeling = combinedIntegratedModeling.reduce((acc, val) => {
+        acc[val] = (acc[val] || 0) + 1;
+        return acc;
+    }, {});
+
+    // Extract labels (categories) and data (frequency) for the bar chart
+    const labelsIntegratedModeling = Object.keys(frequencyMapIntegratedModeling);
+    const dataIntegratedModeling = Object.values(frequencyMapIntegratedModeling);
+
+    // Bar chart configuration
+    const barConfig = {
+        type: 'bar',
+        data: {
+            labels: labelsIntegratedModeling,
+            datasets: [{
+                label: 'Integrated modeling',
+                data: dataIntegratedModeling,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+          scale: {
+                ticks: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            },
+          indexAxis: 'y',
+            scales: {
+                y: {
+                    beginAtZero: true,
+
+                }
+            }
+        }
+    };
+
+    // Create bar chart
+    const barChartCanvas = document.getElementById('barChart').getContext('2d');
+    new Chart(barChartCanvas, barConfig);
 
 
 
+</script>
 
+<script>
 
-          // Create radar chart
-          const radarChartCanvas = document.getElementById('radarChart').getContext('2d');
-          new Chart(radarChartCanvas, config);
-      </script>
+  // List of words
+  var myWords = ["The Midnight Library by Matt Haig",
+"Anxious People by Fredrik Backman",
+"American Dirt by Jeanine Cummins",
+"Such a Fun Age by Kiley Reid",
+"My Dark Vanessa by Kate Elizabeth Russell",
+"The Glass Hotel by Emily St. John Mandel",
+"Transcendent Kingdom by Yaa Gyasi",
+"The Girl with the Louding Voice by Abi Daré Dear Edward by Ann Napolitano",
+"Big Summer by Jennifer Weiner Writers & Lovers by Lily King",
+"If I Had Your Face by Frances Cha A Burning by Megha Majumdar",
+"Luster by Raven Leilani Luster by Raven Leilani Luster by Raven Leilani",
+"In an Instant by Suzanne Redfearn",
+"Oona Out of Order by Margarita Montimore",
+"The Death of Vivek Oji by Akwaeke Emezi",
+"Homeland Elegies by Ayad Akhtar Real Life by Brandon  Taylor",
+"Migrations by Charlotte McConaghy","The Midnight Library by Matt Haig",
+"Anxious People by Fredrik Backman",
+"American Dirt by Jeanine Cummins",
+"Such a Fun Age by Kiley Reid",
+"My Dark Vanessa by Kate Elizabeth Russell",
+"The Glass Hotel by Emily St. John Mandel",
+"Transcendent Kingdom by Yaa Gyasi",
+"The Girl with the Louding Voice by Abi Daré Dear Edward by Ann Napolitano",
+"Big Summer by Jennifer Weiner Writers & Lovers by Lily King",
+"If I Had Your Face by Frances Cha A Burning by Megha Majumdar",
+"Luster by Raven Leilani",
+"In an Instant by Suzanne Redfearn",
+"Oona Out of Order by Margarita Montimore",
+"The Death of Vivek Oji by Akwaeke Emezi",
+"Homeland Elegies by Ayad Akhtar Real Life by Brandon  Taylor",
+"Migrations by Charlotte McConaghy",]
+
+  // set the dimensions and margins of the graph
+  var margin = {top: 10, right: 10, bottom: 10, left: 10},
+      width = 850 - margin.left - margin.right,
+      height = 450 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  var svg = d3.select("#my_dataviz").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+  // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+  // Wordcloud features that are different from one word to the other must be here
+  var layout = d3.layout.cloud()
+    .size([width, height])
+    .words(myWords.map(function(d) { return {text: d}; }))
+    .padding(5)        //space between words
+    .rotate(-45)       // rotation angle in degrees
+    .fontSize(26)      // font size of words
+    .on("end", draw);
+  layout.start();
+
+  // This function takes the output of 'layout' above and draw the words
+  // Wordcloud features that are THE SAME from one word to the other can be here
+  function draw(words) {
+    svg
+      .append("g")
+        .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+        .selectAll("text")
+          .data(words)
+        .enter().append("text")
+          .style("font-size", 26)
+          .style("fill", "#69B18D")
+          .attr("text-anchor", "middle")
+          .style("font-family", "Impact")
+          .attr("transform", function(d) {
+            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+          })
+          .text(function(d) { return d.text; });
+  }
+  </script>
 
   </body>
 </html>
