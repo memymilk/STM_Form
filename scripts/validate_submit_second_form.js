@@ -855,6 +855,16 @@ function ValidateSeven() {
       // Convert the form data to JSON
       const jsonData = JSON.stringify(formData);
 
+       // Create a Blob and download the JSON file
+       var blob = new Blob([jsonData], { type: "application/json" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "questionnaire_data.json";
+      a.click();
+
+// end of json download
+
+
       // Display or use the JSON data as needed
       console.log(jsonData);
 
